@@ -1,0 +1,168 @@
+{
+    "id": "event-card",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Carte événement avec date, lieu, prix et places disponibles",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "description": "Titre de l'événement"
+            },
+            "date": {
+                "type": "string",
+                "description": "Date au format ISO (2026-02-15) ou texte libre"
+            },
+            "endDate": {
+                "type": "string",
+                "description": "Date de fin (optionnel, pour événements multi-jours)",
+                "nullable": true
+            },
+            "time": {
+                "type": "string",
+                "description": "Heure (ex: 09:00 - 17:00)",
+                "nullable": true
+            },
+            "location": {
+                "type": "string",
+                "description": "Lieu de l'événement",
+                "nullable": true
+            },
+            "locationType": {
+                "type": "string",
+                "enum": [
+                    "physical",
+                    "online",
+                    "hybrid"
+                ],
+                "default": "physical"
+            },
+            "price": {
+                "type": "number",
+                "description": "Prix en euros",
+                "nullable": true
+            },
+            "originalPrice": {
+                "type": "number",
+                "description": "Prix barré (promotion)",
+                "nullable": true
+            },
+            "spots": {
+                "type": "integer",
+                "description": "Nombre de places disponibles",
+                "nullable": true
+            },
+            "maxSpots": {
+                "type": "integer",
+                "description": "Nombre total de places",
+                "nullable": true
+            },
+            "tags": {
+                "type": "array",
+                "description": "Tags\/catégories",
+                "default": []
+            },
+            "status": {
+                "type": "string",
+                "enum": [
+                    "available",
+                    "few-spots",
+                    "full",
+                    "cancelled"
+                ],
+                "default": "available"
+            },
+            "href": {
+                "type": "string",
+                "description": "Lien vers la page détail",
+                "nullable": true
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "compact",
+                    "horizontal"
+                ],
+                "default": "default"
+            },
+            "showDateBadge": {
+                "type": "boolean",
+                "default": true,
+                "description": "Afficher le badge date à gauche"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "data": {
+                "type": "object",
+                "description": "Attributs data-* personnalisés pour le filtrage",
+                "default": []
+            }
+        },
+        "required": [
+            "title",
+            "date"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "event",
+        "calendar",
+        "training",
+        "date"
+    ],
+    "examples": [
+        {
+            "name": "Formation Laravel",
+            "inputs": {
+                "title": "Formation Laravel 11 Avancé",
+                "date": "2026-02-15",
+                "endDate": "2026-02-17",
+                "time": "09:00 - 17:00",
+                "location": "Paris, France",
+                "locationType": "physical",
+                "price": 1490,
+                "spots": 4,
+                "maxSpots": 12,
+                "tags": [
+                    "Laravel",
+                    "PHP"
+                ],
+                "status": "few-spots"
+            }
+        },
+        {
+            "name": "Webinaire gratuit",
+            "inputs": {
+                "title": "Introduction à Vue.js 3",
+                "date": "2026-01-20",
+                "time": "14:00 - 15:30",
+                "locationType": "online",
+                "price": 0,
+                "tags": [
+                    "Vue.js",
+                    "Gratuit"
+                ],
+                "status": "available"
+            }
+        },
+        {
+            "name": "Formation complète",
+            "inputs": {
+                "title": "React & TypeScript",
+                "date": "2026-03-10",
+                "location": "Lyon",
+                "price": 1290,
+                "status": "full",
+                "tags": [
+                    "React",
+                    "TypeScript"
+                ]
+            }
+        }
+    ]
+}

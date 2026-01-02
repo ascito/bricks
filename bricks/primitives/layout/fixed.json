@@ -1,0 +1,106 @@
+{
+    "id": "fixed",
+    "version": "1.0.0",
+    "category": "layout.primitive",
+    "description": "Conteneur avec position fixe (reste visible au scroll)",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "top": {
+                "type": "string",
+                "nullable": true,
+                "description": "Position depuis le haut"
+            },
+            "right": {
+                "type": "string",
+                "nullable": true,
+                "description": "Position depuis la droite"
+            },
+            "bottom": {
+                "type": "string",
+                "nullable": true,
+                "description": "Position depuis le bas"
+            },
+            "left": {
+                "type": "string",
+                "nullable": true,
+                "description": "Position depuis la gauche"
+            },
+            "zIndex": {
+                "type": "integer",
+                "default": 50,
+                "description": "Z-index (défaut plus élevé pour fixed)"
+            },
+            "anchor": {
+                "type": "string",
+                "enum": [
+                    "top",
+                    "bottom",
+                    "top-left",
+                    "top-right",
+                    "bottom-left",
+                    "bottom-right",
+                    "center"
+                ],
+                "nullable": true,
+                "description": "Raccourci de positionnement"
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "default": false,
+                "description": "Prendre toute la largeur (pour header\/footer fixed)"
+            },
+            "tag": {
+                "type": "string",
+                "enum": [
+                    "div",
+                    "header",
+                    "footer",
+                    "nav",
+                    "aside"
+                ],
+                "default": "div"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "layout",
+        "primitive",
+        "position",
+        "fixed",
+        "accepts:children"
+    ],
+    "examples": [
+        {
+            "name": "Header fixe",
+            "inputs": {
+                "anchor": "top",
+                "fullWidth": true,
+                "tag": "header"
+            }
+        },
+        {
+            "name": "Bouton flottant bas droite",
+            "inputs": {
+                "anchor": "bottom-right"
+            }
+        },
+        {
+            "name": "Footer fixe",
+            "inputs": {
+                "anchor": "bottom",
+                "fullWidth": true,
+                "tag": "footer"
+            }
+        }
+    ]
+}

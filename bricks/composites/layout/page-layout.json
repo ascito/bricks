@@ -1,0 +1,105 @@
+{
+    "id": "page-layout",
+    "version": "1.0.0",
+    "category": "layout.composite",
+    "description": "Structure de page complète avec header, main, sidebar et footer",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "sidebar-left",
+                    "sidebar-right",
+                    "full-width"
+                ],
+                "default": "default",
+                "description": "Disposition de la page"
+            },
+            "sidebarWidth": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md",
+                "description": "Largeur de la sidebar"
+            },
+            "sidebarCollapsible": {
+                "type": "boolean",
+                "default": true,
+                "description": "Sidebar collapsible sur mobile"
+            },
+            "headerFixed": {
+                "type": "boolean",
+                "default": false,
+                "description": "Header fixe en haut"
+            },
+            "footerFixed": {
+                "type": "boolean",
+                "default": false,
+                "description": "Footer fixe en bas"
+            },
+            "minHeight": {
+                "type": "string",
+                "enum": [
+                    "auto",
+                    "screen"
+                ],
+                "default": "screen",
+                "description": "Hauteur minimum (screen = 100vh)"
+            },
+            "gap": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "none"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "layout",
+        "composite",
+        "page",
+        "structure",
+        "accepts:header",
+        "accepts:main",
+        "accepts:sidebar",
+        "accepts:footer"
+    ],
+    "examples": [
+        {
+            "name": "Page simple",
+            "inputs": {
+                "variant": "default"
+            }
+        },
+        {
+            "name": "Page avec sidebar gauche",
+            "inputs": {
+                "variant": "sidebar-left",
+                "sidebarWidth": "md",
+                "headerFixed": true
+            }
+        },
+        {
+            "name": "Dashboard avec sidebar",
+            "inputs": {
+                "variant": "sidebar-left",
+                "sidebarWidth": "lg",
+                "sidebarCollapsible": true
+            }
+        }
+    ]
+}

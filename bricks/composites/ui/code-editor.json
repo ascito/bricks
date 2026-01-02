@@ -1,0 +1,102 @@
+{
+    "id": "code-editor",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Éditeur de code avec coloration syntaxique et numéros de ligne. Idéal pour afficher\/éditer JSON, code.",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Nom du champ pour le formulaire",
+                "default": "code"
+            },
+            "value": {
+                "type": "string",
+                "description": "Contenu initial",
+                "default": ""
+            },
+            "language": {
+                "type": "string",
+                "enum": [
+                    "json",
+                    "html",
+                    "css",
+                    "javascript",
+                    "php",
+                    "plain"
+                ],
+                "default": "json"
+            },
+            "theme": {
+                "type": "string",
+                "enum": [
+                    "light",
+                    "dark"
+                ],
+                "default": "dark"
+            },
+            "readonly": {
+                "type": "boolean",
+                "default": false
+            },
+            "showLineNumbers": {
+                "type": "boolean",
+                "default": true
+            },
+            "showCopyButton": {
+                "type": "boolean",
+                "default": true
+            },
+            "minHeight": {
+                "type": "string",
+                "default": "200px"
+            },
+            "maxHeight": {
+                "type": "string",
+                "default": "500px"
+            },
+            "placeholder": {
+                "type": "string",
+                "default": "Entrez votre code..."
+            },
+            "label": {
+                "type": "string",
+                "nullable": true
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "code",
+        "editor",
+        "json",
+        "syntax",
+        "playground",
+        "developer"
+    ],
+    "examples": [
+        {
+            "name": "Éditeur JSON",
+            "inputs": {
+                "language": "json",
+                "value": "{\n  \"brick\": \"button\",\n  \"inputs\": {\n    \"label\": \"Click me\"\n  }\n}"
+            }
+        },
+        {
+            "name": "Code HTML readonly",
+            "inputs": {
+                "language": "html",
+                "readonly": true,
+                "theme": "light",
+                "value": "<div class=\"card\">\\n  <h2>Title<\/h2>\\n  <p>Content<\/p>\\n<\/div>"
+            }
+        }
+    ]
+}

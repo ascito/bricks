@@ -1,0 +1,73 @@
+{
+    "id": "icon",
+    "version": "1.0.0",
+    "category": "ui.primitive",
+    "description": "Icône SVG",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Nom de l'icône"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl"
+                ],
+                "default": "md"
+            },
+            "color": {
+                "type": "string",
+                "default": "currentColor",
+                "description": "Couleur (currentColor, primary, success, warning, danger, muted, white, ou hex)"
+            },
+            "strokeWidth": {
+                "type": "number",
+                "default": 2
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": [
+            "name"
+        ]
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "icon",
+        "svg",
+        "visual"
+    ],
+    "examples": [
+        {
+            "name": "Icône home",
+            "inputs": {
+                "name": "home"
+            }
+        },
+        {
+            "name": "Icône large colorée",
+            "inputs": {
+                "name": "star",
+                "size": "xl",
+                "color": "warning"
+            }
+        },
+        {
+            "name": "Icône dans un bouton",
+            "inputs": {
+                "name": "send",
+                "size": "sm"
+            }
+        }
+    ]
+}

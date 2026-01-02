@@ -1,0 +1,138 @@
+{
+    "id": "date-picker",
+    "version": "1.0.0",
+    "category": "form.composite",
+    "description": "Sélecteur de date avec calendrier interactif. Idéal pour réservations, formulaires.",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Nom du champ pour le formulaire",
+                "default": "date"
+            },
+            "label": {
+                "type": "string",
+                "description": "Label du champ",
+                "nullable": true
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "Placeholder du champ",
+                "default": "Sélectionner une date"
+            },
+            "value": {
+                "type": "string",
+                "description": "Date initiale (format YYYY-MM-DD)",
+                "nullable": true
+            },
+            "min": {
+                "type": "string",
+                "description": "Date minimum (format YYYY-MM-DD)",
+                "nullable": true
+            },
+            "max": {
+                "type": "string",
+                "description": "Date maximum (format YYYY-MM-DD)",
+                "nullable": true
+            },
+            "disabled": {
+                "type": "boolean",
+                "default": false
+            },
+            "required": {
+                "type": "boolean",
+                "default": false
+            },
+            "format": {
+                "type": "string",
+                "description": "Format d'affichage (DD\/MM\/YYYY, YYYY-MM-DD, etc.)",
+                "default": "DD\/MM\/YYYY"
+            },
+            "locale": {
+                "type": "string",
+                "description": "Locale pour les jours\/mois",
+                "enum": [
+                    "fr",
+                    "en"
+                ],
+                "default": "fr"
+            },
+            "inline": {
+                "type": "boolean",
+                "description": "Afficher le calendrier directement (sans popup)",
+                "default": false
+            },
+            "showTodayButton": {
+                "type": "boolean",
+                "description": "Afficher le bouton \"Aujourd'hui\"",
+                "default": true
+            },
+            "disabledDates": {
+                "type": "array",
+                "description": "Liste de dates désactivées (format YYYY-MM-DD)",
+                "items": {
+                    "type": "string"
+                },
+                "default": []
+            },
+            "disabledDays": {
+                "type": "array",
+                "description": "Jours de la semaine désactivés (0=dimanche, 6=samedi)",
+                "items": {
+                    "type": "integer"
+                },
+                "default": []
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": [
+            "name"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "date",
+        "picker",
+        "calendar",
+        "form",
+        "input",
+        "reservation"
+    ],
+    "examples": [
+        {
+            "name": "Date simple",
+            "inputs": {
+                "name": "booking_date",
+                "label": "Date de réservation",
+                "required": true
+            }
+        },
+        {
+            "name": "Date avec contraintes",
+            "inputs": {
+                "name": "formation_date",
+                "label": "Date de la formation",
+                "min": "2026-01-01",
+                "max": "2026-12-31",
+                "disabledDays": [
+                    0,
+                    6
+                ],
+                "placeholder": "Choisir une date (lun-ven)"
+            }
+        },
+        {
+            "name": "Calendrier inline",
+            "inputs": {
+                "name": "selected_date",
+                "inline": true,
+                "showTodayButton": true
+            }
+        }
+    ]
+}

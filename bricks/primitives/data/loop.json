@@ -1,0 +1,119 @@
+{
+    "id": "loop",
+    "version": "1.0.0",
+    "category": "data.primitive",
+    "description": "Répète un contenu pour chaque élément d'un tableau",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "each": {
+                "type": "string",
+                "description": "Chemin du tableau à parcourir (ex: \"products\", \"user.orders\")"
+            },
+            "as": {
+                "type": "string",
+                "default": "item",
+                "description": "Nom de la variable pour l'élément courant"
+            },
+            "indexAs": {
+                "type": "string",
+                "default": "index",
+                "description": "Nom de la variable pour l'index courant"
+            },
+            "key": {
+                "type": "string",
+                "nullable": true,
+                "description": "Propriété à utiliser comme clé unique (pour le rendu optimisé)"
+            },
+            "limit": {
+                "type": "integer",
+                "nullable": true,
+                "description": "Nombre maximum d'éléments à afficher"
+            },
+            "offset": {
+                "type": "integer",
+                "default": 0,
+                "description": "Nombre d'éléments à sauter au début"
+            },
+            "reverse": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inverser l'ordre des éléments"
+            },
+            "wrapper": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "div",
+                    "ul",
+                    "ol",
+                    "section"
+                ],
+                "default": "none",
+                "description": "Élément HTML qui entoure la liste"
+            },
+            "itemWrapper": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "div",
+                    "li",
+                    "article"
+                ],
+                "default": "none",
+                "description": "Élément HTML qui entoure chaque item"
+            },
+            "className": {
+                "type": "string",
+                "default": "",
+                "description": "Classes CSS pour le wrapper"
+            },
+            "itemClassName": {
+                "type": "string",
+                "default": "",
+                "description": "Classes CSS pour chaque item wrapper"
+            }
+        },
+        "required": [
+            "each"
+        ]
+    },
+    "tags": [
+        "data",
+        "primitive",
+        "loop",
+        "each",
+        "repeat",
+        "iteration",
+        "control"
+    ],
+    "examples": [
+        {
+            "name": "Liste de produits",
+            "inputs": {
+                "each": "products",
+                "as": "product"
+            }
+        },
+        {
+            "name": "Liste ordonnée avec limite",
+            "inputs": {
+                "each": "articles",
+                "as": "article",
+                "wrapper": "ol",
+                "itemWrapper": "li",
+                "limit": 5
+            }
+        },
+        {
+            "name": "Grille d'images",
+            "inputs": {
+                "each": "gallery.images",
+                "as": "image",
+                "indexAs": "i",
+                "wrapper": "div",
+                "className": "grid grid-cols-3 gap-4"
+            }
+        }
+    ]
+}

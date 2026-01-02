@@ -1,0 +1,251 @@
+{
+    "id": "fonts",
+    "version": "1.0.0",
+    "category": "meta",
+    "description": "Configuration globale des polices (Google Fonts, variables CSS)",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "googleFonts": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "family": {
+                            "type": "string",
+                            "description": "Nom de la police (ex: Inter, Playfair Display)"
+                        },
+                        "weights": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": [
+                                "400",
+                                "500",
+                                "600",
+                                "700"
+                            ],
+                            "description": "Graisses à charger (400, 500, 600, 700, etc.)"
+                        },
+                        "italic": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Charger les styles italiques"
+                        },
+                        "display": {
+                            "type": "string",
+                            "enum": [
+                                "auto",
+                                "block",
+                                "swap",
+                                "fallback",
+                                "optional"
+                            ],
+                            "default": "swap"
+                        }
+                    },
+                    "required": [
+                        "family"
+                    ]
+                },
+                "default": [],
+                "description": "Liste des Google Fonts à charger"
+            },
+            "customFonts": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "family": {
+                            "type": "string"
+                        },
+                        "src": {
+                            "type": "string",
+                            "description": "URL du fichier font (woff2, woff, ttf)"
+                        },
+                        "weight": {
+                            "type": "string",
+                            "default": "400"
+                        },
+                        "style": {
+                            "type": "string",
+                            "default": "normal"
+                        },
+                        "display": {
+                            "type": "string",
+                            "default": "swap"
+                        }
+                    },
+                    "required": [
+                        "family",
+                        "src"
+                    ]
+                },
+                "default": [],
+                "description": "Fonts personnalisées avec @font-face"
+            },
+            "primary": {
+                "type": "string",
+                "default": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+                "description": "Font principale (body, texte courant)"
+            },
+            "heading": {
+                "type": "string",
+                "default": "inherit",
+                "description": "Font pour les titres (h1-h6). \"inherit\" = utilise primary"
+            },
+            "mono": {
+                "type": "string",
+                "default": "ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, monospace",
+                "description": "Font monospace (code, pre)"
+            },
+            "scale": {
+                "type": "object",
+                "properties": {
+                    "xs": {
+                        "type": "string",
+                        "default": "0.75rem"
+                    },
+                    "sm": {
+                        "type": "string",
+                        "default": "0.875rem"
+                    },
+                    "md": {
+                        "type": "string",
+                        "default": "1rem"
+                    },
+                    "lg": {
+                        "type": "string",
+                        "default": "1.125rem"
+                    },
+                    "xl": {
+                        "type": "string",
+                        "default": "1.25rem"
+                    },
+                    "2xl": {
+                        "type": "string",
+                        "default": "1.5rem"
+                    },
+                    "3xl": {
+                        "type": "string",
+                        "default": "1.875rem"
+                    },
+                    "4xl": {
+                        "type": "string",
+                        "default": "2.25rem"
+                    },
+                    "5xl": {
+                        "type": "string",
+                        "default": "3rem"
+                    }
+                },
+                "default": null,
+                "description": "Échelle typographique personnalisée"
+            },
+            "lineHeight": {
+                "type": "object",
+                "properties": {
+                    "tight": {
+                        "type": "string",
+                        "default": "1.25"
+                    },
+                    "normal": {
+                        "type": "string",
+                        "default": "1.5"
+                    },
+                    "relaxed": {
+                        "type": "string",
+                        "default": "1.75"
+                    }
+                },
+                "default": null
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "meta",
+        "fonts",
+        "typography",
+        "head",
+        "google-fonts"
+    ],
+    "examples": [
+        {
+            "name": "Google Fonts - Inter + Playfair Display",
+            "inputs": {
+                "googleFonts": [
+                    {
+                        "family": "Inter",
+                        "weights": [
+                            "400",
+                            "500",
+                            "600",
+                            "700"
+                        ]
+                    },
+                    {
+                        "family": "Playfair Display",
+                        "weights": [
+                            "400",
+                            "700"
+                        ]
+                    }
+                ],
+                "primary": "\"Inter\", system-ui, sans-serif",
+                "heading": "\"Playfair Display\", Georgia, serif"
+            }
+        },
+        {
+            "name": "Font unique - Instrument Sans",
+            "inputs": {
+                "googleFonts": [
+                    {
+                        "family": "Instrument Sans",
+                        "weights": [
+                            "400",
+                            "500",
+                            "600",
+                            "700"
+                        ]
+                    }
+                ],
+                "primary": "\"Instrument Sans\", system-ui, sans-serif"
+            }
+        },
+        {
+            "name": "Font système (sans Google Fonts)",
+            "inputs": {
+                "primary": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+                "heading": "Georgia, \"Times New Roman\", serif",
+                "mono": "\"JetBrains Mono\", \"Fira Code\", monospace"
+            }
+        },
+        {
+            "name": "Restaurant chic - Cormorant Garamond",
+            "inputs": {
+                "googleFonts": [
+                    {
+                        "family": "Cormorant Garamond",
+                        "weights": [
+                            "400",
+                            "500",
+                            "600"
+                        ],
+                        "italic": true
+                    },
+                    {
+                        "family": "Montserrat",
+                        "weights": [
+                            "400",
+                            "500"
+                        ]
+                    }
+                ],
+                "primary": "\"Montserrat\", system-ui, sans-serif",
+                "heading": "\"Cormorant Garamond\", Georgia, serif"
+            }
+        }
+    ]
+}

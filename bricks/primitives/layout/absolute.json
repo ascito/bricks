@@ -1,0 +1,105 @@
+{
+    "id": "absolute",
+    "version": "1.0.0",
+    "category": "layout.primitive",
+    "description": "Conteneur avec position absolue",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "top": {
+                "type": "string",
+                "nullable": true,
+                "description": "Position depuis le haut (ex: 0, 1rem, 50%)"
+            },
+            "right": {
+                "type": "string",
+                "nullable": true,
+                "description": "Position depuis la droite"
+            },
+            "bottom": {
+                "type": "string",
+                "nullable": true,
+                "description": "Position depuis le bas"
+            },
+            "left": {
+                "type": "string",
+                "nullable": true,
+                "description": "Position depuis la gauche"
+            },
+            "inset": {
+                "type": "string",
+                "nullable": true,
+                "description": "Raccourci pour top\/right\/bottom\/left identiques"
+            },
+            "zIndex": {
+                "type": "integer",
+                "default": 10,
+                "description": "Z-index"
+            },
+            "anchor": {
+                "type": "string",
+                "enum": [
+                    "top-left",
+                    "top-center",
+                    "top-right",
+                    "center-left",
+                    "center",
+                    "center-right",
+                    "bottom-left",
+                    "bottom-center",
+                    "bottom-right"
+                ],
+                "nullable": true,
+                "description": "Raccourci de positionnement prédéfini"
+            },
+            "tag": {
+                "type": "string",
+                "enum": [
+                    "div",
+                    "span",
+                    "aside",
+                    "nav"
+                ],
+                "default": "div"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "layout",
+        "primitive",
+        "position",
+        "absolute",
+        "accepts:children"
+    ],
+    "examples": [
+        {
+            "name": "Coin haut droite",
+            "inputs": {
+                "anchor": "top-right"
+            }
+        },
+        {
+            "name": "Centré",
+            "inputs": {
+                "anchor": "center"
+            }
+        },
+        {
+            "name": "Position custom",
+            "inputs": {
+                "top": "1rem",
+                "left": "2rem",
+                "zIndex": 50
+            }
+        }
+    ]
+}

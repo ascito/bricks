@@ -1,0 +1,103 @@
+{
+    "id": "avatar",
+    "version": "1.0.0",
+    "category": "ui.primitive",
+    "description": "Avatar avec image ou initiales, utilisable pour logos et profils",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "src": {
+                "type": "string",
+                "nullable": true,
+                "description": "URL de l'image (optionnel)"
+            },
+            "alt": {
+                "type": "string",
+                "default": ""
+            },
+            "initials": {
+                "type": "string",
+                "nullable": true,
+                "description": "Initiales ou lettre à afficher si pas d'image"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl"
+                ],
+                "default": "md"
+            },
+            "shape": {
+                "type": "string",
+                "enum": [
+                    "circle",
+                    "rounded",
+                    "square"
+                ],
+                "default": "circle"
+            },
+            "color": {
+                "type": "string",
+                "enum": [
+                    "primary",
+                    "secondary",
+                    "success",
+                    "warning",
+                    "danger",
+                    "gray",
+                    "dark"
+                ],
+                "default": "primary",
+                "description": "Couleur de fond pour les initiales"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "avatar",
+        "logo",
+        "image"
+    ],
+    "examples": [
+        {
+            "name": "Avatar avec image",
+            "inputs": {
+                "src": "\/images\/user.jpg",
+                "alt": "John Doe",
+                "size": "lg"
+            }
+        },
+        {
+            "name": "Avatar avec initiales",
+            "inputs": {
+                "initials": "JD",
+                "size": "lg",
+                "color": "primary"
+            }
+        },
+        {
+            "name": "Logo",
+            "inputs": {
+                "initials": "B",
+                "size": "xl",
+                "color": "primary",
+                "shape": "rounded"
+            }
+        }
+    ]
+}

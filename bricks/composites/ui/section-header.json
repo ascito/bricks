@@ -1,0 +1,133 @@
+{
+    "id": "section-header",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "En-tête de section avec eyebrow, titre et description optionnelle",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "eyebrow": {
+                "type": "string",
+                "description": "Petit texte au-dessus du titre"
+            },
+            "title": {
+                "type": "string",
+                "description": "Titre principal"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description sous le titre (optionnel)"
+            },
+            "level": {
+                "type": "integer",
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "default": 2,
+                "description": "Niveau du titre (h1-h4)"
+            },
+            "align": {
+                "type": "string",
+                "enum": [
+                    "left",
+                    "center",
+                    "right"
+                ],
+                "default": "center"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl"
+                ],
+                "default": "md",
+                "description": "Taille du titre"
+            },
+            "eyebrowColor": {
+                "type": "string",
+                "enum": [
+                    "primary",
+                    "secondary",
+                    "muted"
+                ],
+                "default": "primary"
+            },
+            "spacing": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl"
+                ],
+                "default": "lg",
+                "description": "Espacement sous le header"
+            },
+            "maxWidth": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "full"
+                ],
+                "default": "lg",
+                "description": "Largeur max de la description"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "title"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "section",
+        "header",
+        "title",
+        "eyebrow"
+    ],
+    "examples": [
+        {
+            "name": "Section centrée",
+            "inputs": {
+                "eyebrow": "Nos services",
+                "title": "Ce que nous proposons",
+                "description": "Découvrez notre gamme complète de services adaptés à vos besoins.",
+                "align": "center"
+            }
+        },
+        {
+            "name": "Section alignée gauche",
+            "inputs": {
+                "eyebrow": "À propos",
+                "title": "Notre histoire",
+                "align": "left"
+            }
+        },
+        {
+            "name": "Grande section",
+            "inputs": {
+                "eyebrow": "FAQ",
+                "title": "Questions fréquentes",
+                "size": "lg",
+                "align": "center"
+            }
+        }
+    ]
+}

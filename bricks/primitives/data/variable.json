@@ -1,0 +1,103 @@
+{
+    "id": "variable",
+    "version": "1.0.0",
+    "category": "data.primitive",
+    "description": "Affiche la valeur d'une variable du contexte de données",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "path": {
+                "type": "string",
+                "description": "Chemin de la variable (ex: \"user.name\", \"products.0.title\")"
+            },
+            "default": {
+                "type": "string",
+                "default": "",
+                "description": "Valeur par défaut si la variable n'existe pas"
+            },
+            "escape": {
+                "type": "boolean",
+                "default": true,
+                "description": "Échapper le HTML (sécurité XSS)"
+            },
+            "format": {
+                "type": "string",
+                "enum": [
+                    "raw",
+                    "uppercase",
+                    "lowercase",
+                    "capitalize",
+                    "number",
+                    "currency",
+                    "date"
+                ],
+                "default": "raw",
+                "description": "Formatage de la valeur"
+            },
+            "locale": {
+                "type": "string",
+                "default": "fr-FR",
+                "description": "Locale pour le formatage (number, currency, date)"
+            },
+            "wrapper": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "span",
+                    "strong",
+                    "em",
+                    "code"
+                ],
+                "default": "none",
+                "description": "Élément HTML qui entoure la valeur"
+            },
+            "className": {
+                "type": "string",
+                "default": "",
+                "description": "Classes CSS pour le wrapper"
+            }
+        },
+        "required": [
+            "path"
+        ]
+    },
+    "tags": [
+        "data",
+        "primitive",
+        "variable",
+        "dynamic",
+        "binding"
+    ],
+    "examples": [
+        {
+            "name": "Variable simple",
+            "inputs": {
+                "path": "user.name",
+                "default": "Anonyme"
+            }
+        },
+        {
+            "name": "Prix formaté",
+            "inputs": {
+                "path": "product.price",
+                "format": "currency",
+                "default": "0"
+            }
+        },
+        {
+            "name": "Date formatée",
+            "inputs": {
+                "path": "article.publishedAt",
+                "format": "date"
+            }
+        },
+        {
+            "name": "Avec wrapper",
+            "inputs": {
+                "path": "user.email",
+                "wrapper": "code",
+                "className": "text-primary"
+            }
+        }
+    ]
+}

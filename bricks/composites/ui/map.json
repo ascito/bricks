@@ -1,0 +1,190 @@
+{
+    "id": "map",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Carte interactive avec marqueur de localisation",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "provider": {
+                "type": "string",
+                "enum": [
+                    "google",
+                    "openstreetmap"
+                ],
+                "default": "openstreetmap",
+                "description": "Fournisseur de carte"
+            },
+            "latitude": {
+                "type": "number",
+                "description": "Latitude du point central"
+            },
+            "longitude": {
+                "type": "number",
+                "description": "Longitude du point central"
+            },
+            "address": {
+                "type": "string",
+                "description": "Adresse textuelle (alternative aux coordonnées pour Google Maps)"
+            },
+            "zoom": {
+                "type": "integer",
+                "default": 15,
+                "description": "Niveau de zoom (1-20)"
+            },
+            "height": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "full"
+                ],
+                "default": "md",
+                "description": "Hauteur de la carte"
+            },
+            "marker": {
+                "type": "boolean",
+                "default": true,
+                "description": "Afficher un marqueur"
+            },
+            "markerTitle": {
+                "type": "string",
+                "description": "Titre du marqueur (popup)"
+            },
+            "rounded": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl"
+                ],
+                "default": "md"
+            },
+            "shadow": {
+                "type": "boolean",
+                "default": true,
+                "description": "Ajouter une ombre"
+            },
+            "interactive": {
+                "type": "boolean",
+                "default": true,
+                "description": "Permettre le zoom\/déplacement"
+            },
+            "showControls": {
+                "type": "boolean",
+                "default": true,
+                "description": "Afficher les contrôles de la carte"
+            },
+            "apiKey": {
+                "type": "string",
+                "description": "Clé API Google Maps (requis pour provider=google)"
+            },
+            "infoCard": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "hours": {
+                        "type": "string"
+                    },
+                    "showDirections": {
+                        "type": "boolean",
+                        "default": true
+                    }
+                },
+                "description": "Carte d'info superposée"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "map",
+        "location",
+        "google-maps",
+        "openstreetmap",
+        "address",
+        "contact"
+    ],
+    "examples": [
+        {
+            "name": "Carte simple OpenStreetMap",
+            "description": "Carte centrée sur Paris",
+            "inputs": {
+                "latitude": 48.8566,
+                "longitude": 2.3522,
+                "zoom": 13
+            }
+        },
+        {
+            "name": "Carte restaurant",
+            "description": "Carte avec info-card overlay",
+            "inputs": {
+                "latitude": 48.8584,
+                "longitude": 2.2945,
+                "zoom": 16,
+                "height": "lg",
+                "infoCard": {
+                    "title": "La Belle Assiette",
+                    "address": "15 rue de la Gastronomie, 75007 Paris",
+                    "phone": "01 23 45 67 89",
+                    "hours": "Lun-Sam: 12h-14h, 19h-22h",
+                    "showDirections": true
+                }
+            }
+        },
+        {
+            "name": "Carte Google Maps",
+            "description": "Utilise Google Maps avec adresse",
+            "inputs": {
+                "provider": "google",
+                "address": "Tour Eiffel, Paris",
+                "zoom": 15,
+                "height": "md"
+            }
+        },
+        {
+            "name": "Carte pleine page",
+            "description": "Grande carte sans coins arrondis",
+            "inputs": {
+                "latitude": 48.8606,
+                "longitude": 2.3376,
+                "zoom": 14,
+                "height": "full",
+                "rounded": "none",
+                "shadow": false
+            }
+        },
+        {
+            "name": "Carte non interactive",
+            "description": "Carte statique (lecture seule)",
+            "inputs": {
+                "latitude": 48.8566,
+                "longitude": 2.3522,
+                "interactive": false,
+                "showControls": false,
+                "height": "sm"
+            }
+        }
+    ]
+}

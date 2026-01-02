@@ -1,0 +1,112 @@
+{
+    "id": "header",
+    "version": "1.0.0",
+    "category": "layout.composite",
+    "description": "En-tête de page avec logo, navigation et actions",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "transparent",
+                    "bordered",
+                    "elevated"
+                ],
+                "default": "default"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "position": {
+                "type": "string",
+                "enum": [
+                    "static",
+                    "sticky",
+                    "fixed"
+                ],
+                "default": "static"
+            },
+            "maxWidth": {
+                "type": "string",
+                "enum": [
+                    "full",
+                    "xl",
+                    "2xl"
+                ],
+                "default": "xl",
+                "description": "Largeur max du contenu"
+            },
+            "background": {
+                "type": "string",
+                "enum": [
+                    "white",
+                    "light",
+                    "dark",
+                    "primary",
+                    "transparent"
+                ],
+                "default": "white"
+            },
+            "showMobileMenu": {
+                "type": "boolean",
+                "default": true,
+                "description": "Afficher le bouton menu hamburger sur mobile"
+            },
+            "mobileBreakpoint": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "layout",
+        "composite",
+        "header",
+        "navigation",
+        "accepts:logo",
+        "accepts:nav",
+        "accepts:actions"
+    ],
+    "examples": [
+        {
+            "name": "Header simple",
+            "inputs": {
+                "variant": "default",
+                "position": "static"
+            }
+        },
+        {
+            "name": "Header sticky avec ombre",
+            "inputs": {
+                "variant": "elevated",
+                "position": "sticky"
+            }
+        },
+        {
+            "name": "Header transparent (pour hero)",
+            "inputs": {
+                "variant": "transparent",
+                "position": "fixed",
+                "background": "transparent"
+            }
+        }
+    ]
+}

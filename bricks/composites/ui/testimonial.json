@@ -1,0 +1,215 @@
+{
+    "id": "testimonial",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Témoignage client avec avatar, citation, nom et note optionnelle",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "quote": {
+                "type": "string",
+                "description": "Texte du témoignage"
+            },
+            "author": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Nom de l'auteur"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Titre\/fonction (optionnel)"
+                    },
+                    "company": {
+                        "type": "string",
+                        "description": "Entreprise (optionnel)"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "URL de l'avatar"
+                    },
+                    "initials": {
+                        "type": "string",
+                        "description": "Initiales si pas d'avatar"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "rating": {
+                "type": "number",
+                "description": "Note (1-5, optionnel)"
+            },
+            "date": {
+                "type": "string",
+                "description": "Date du témoignage (optionnel)"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "card",
+                    "minimal",
+                    "featured"
+                ],
+                "default": "default"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "align": {
+                "type": "string",
+                "enum": [
+                    "left",
+                    "center",
+                    "right"
+                ],
+                "default": "left"
+            },
+            "showQuotes": {
+                "type": "boolean",
+                "default": true,
+                "description": "Afficher les guillemets décoratifs"
+            },
+            "avatarSize": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl"
+                ],
+                "default": "md"
+            },
+            "avatarPosition": {
+                "type": "string",
+                "enum": [
+                    "top",
+                    "left",
+                    "inline"
+                ],
+                "default": "inline"
+            },
+            "background": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "light",
+                    "dark",
+                    "primary",
+                    "gradient"
+                ],
+                "default": "none"
+            },
+            "borderColor": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "gray",
+                    "primary"
+                ],
+                "default": "none"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "quote",
+            "author"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "testimonial",
+        "review",
+        "quote",
+        "feedback",
+        "social-proof"
+    ],
+    "examples": [
+        {
+            "name": "Témoignage simple",
+            "description": "Avis basique avec nom",
+            "inputs": {
+                "quote": "Un service exceptionnel ! Je recommande vivement.",
+                "author": {
+                    "name": "Marie Dupont"
+                }
+            }
+        },
+        {
+            "name": "Témoignage complet",
+            "description": "Avec avatar, titre et note",
+            "inputs": {
+                "quote": "La meilleure expérience culinaire de ma vie. Des plats raffinés, un service impeccable.",
+                "author": {
+                    "name": "Jean-Pierre Martin",
+                    "title": "Critique gastronomique",
+                    "company": "Le Guide Gourmand",
+                    "avatar": "https:\/\/i.pravatar.cc\/100?img=12"
+                },
+                "rating": 5,
+                "date": "Décembre 2026"
+            }
+        },
+        {
+            "name": "Témoignage card",
+            "description": "Style carte avec fond",
+            "inputs": {
+                "quote": "Cadre magnifique et cuisine délicieuse. Parfait pour un dîner romantique.",
+                "author": {
+                    "name": "Sophie Laurent",
+                    "initials": "SL"
+                },
+                "rating": 4.5,
+                "variant": "card",
+                "background": "light"
+            }
+        },
+        {
+            "name": "Témoignage featured",
+            "description": "Mis en avant avec grand avatar",
+            "inputs": {
+                "quote": "Le Chef Antoine a su sublimer les produits de saison. Une adresse incontournable.",
+                "author": {
+                    "name": "Pierre Durand",
+                    "title": "Chef étoilé",
+                    "avatar": "https:\/\/i.pravatar.cc\/100?img=33"
+                },
+                "rating": 5,
+                "variant": "featured",
+                "avatarSize": "xl",
+                "avatarPosition": "top",
+                "align": "center"
+            }
+        },
+        {
+            "name": "Témoignage minimal",
+            "description": "Style épuré sans décoration",
+            "inputs": {
+                "quote": "Excellent rapport qualité-prix.",
+                "author": {
+                    "name": "Client vérifié"
+                },
+                "rating": 4,
+                "variant": "minimal",
+                "showQuotes": false
+            }
+        }
+    ]
+}

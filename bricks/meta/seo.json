@@ -1,0 +1,343 @@
+{
+    "id": "seo",
+    "version": "1.0.0",
+    "category": "meta",
+    "description": "Meta tags SEO, Open Graph, Twitter Cards et Schema.org",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "description": "Title de la page (55-60 caractères)"
+            },
+            "description": {
+                "type": "string",
+                "description": "Meta description (150-160 caractères)"
+            },
+            "canonical": {
+                "type": "string",
+                "description": "URL canonique absolue"
+            },
+            "robots": {
+                "type": "string",
+                "enum": [
+                    "index, follow",
+                    "noindex, follow",
+                    "index, nofollow",
+                    "noindex, nofollow"
+                ],
+                "default": "index, follow"
+            },
+            "lang": {
+                "type": "string",
+                "default": "fr",
+                "description": "Code langue ISO (fr, en, es...)"
+            },
+            "og": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "website",
+                            "article",
+                            "product",
+                            "profile"
+                        ],
+                        "default": "website"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "imageWidth": {
+                        "type": "integer",
+                        "default": 1200
+                    },
+                    "imageHeight": {
+                        "type": "integer",
+                        "default": 630
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "siteName": {
+                        "type": "string"
+                    },
+                    "locale": {
+                        "type": "string",
+                        "default": "fr_FR"
+                    }
+                },
+                "default": null
+            },
+            "twitter": {
+                "type": "object",
+                "properties": {
+                    "card": {
+                        "type": "string",
+                        "enum": [
+                            "summary",
+                            "summary_large_image",
+                            "app",
+                            "player"
+                        ],
+                        "default": "summary_large_image"
+                    },
+                    "site": {
+                        "type": "string",
+                        "description": "@compte du site"
+                    },
+                    "creator": {
+                        "type": "string",
+                        "description": "@compte de l'auteur"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    }
+                },
+                "default": null
+            },
+            "favicon": {
+                "type": "object",
+                "properties": {
+                    "ico": {
+                        "type": "string",
+                        "default": "\/favicon.ico"
+                    },
+                    "svg": {
+                        "type": "string"
+                    },
+                    "png16": {
+                        "type": "string"
+                    },
+                    "png32": {
+                        "type": "string"
+                    },
+                    "appleTouchIcon": {
+                        "type": "string"
+                    },
+                    "android192": {
+                        "type": "string"
+                    },
+                    "android512": {
+                        "type": "string"
+                    }
+                },
+                "default": null
+            },
+            "pwa": {
+                "type": "object",
+                "properties": {
+                    "manifest": {
+                        "type": "string",
+                        "default": "\/manifest.json"
+                    },
+                    "themeColor": {
+                        "type": "string"
+                    },
+                    "themeColorDark": {
+                        "type": "string"
+                    },
+                    "appleMobileWebAppCapable": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "appleMobileWebAppTitle": {
+                        "type": "string"
+                    },
+                    "appleMobileWebAppStatusBarStyle": {
+                        "type": "string",
+                        "enum": [
+                            "default",
+                            "black",
+                            "black-translucent"
+                        ],
+                        "default": "default"
+                    }
+                },
+                "default": null
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "WebSite",
+                            "Organization",
+                            "Article",
+                            "Product",
+                            "LocalBusiness",
+                            "FAQPage",
+                            "HowTo",
+                            "Event",
+                            "Person",
+                            "BreadcrumbList"
+                        ],
+                        "default": "WebSite"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "searchUrl": {
+                        "type": "string",
+                        "description": "URL avec {search_term_string}"
+                    },
+                    "logo": {
+                        "type": "string"
+                    },
+                    "sameAs": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "headline": {
+                        "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
+                    },
+                    "author": {
+                        "type": "string"
+                    },
+                    "publisher": {
+                        "type": "string"
+                    },
+                    "publisherLogo": {
+                        "type": "string"
+                    },
+                    "datePublished": {
+                        "type": "string"
+                    },
+                    "dateModified": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "string"
+                    },
+                    "priceCurrency": {
+                        "type": "string",
+                        "default": "EUR"
+                    },
+                    "availability": {
+                        "type": "string",
+                        "enum": [
+                            "InStock",
+                            "OutOfStock",
+                            "PreOrder"
+                        ],
+                        "default": "InStock"
+                    },
+                    "breadcrumbs": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "url": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "default": null
+            },
+            "additionalSchemas": {
+                "type": "array",
+                "items": {
+                    "type": "object"
+                },
+                "default": []
+            },
+            "preconnect": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "default": []
+            },
+            "dnsPrefetch": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "default": []
+            }
+        },
+        "required": [
+            "title",
+            "description"
+        ]
+    },
+    "tags": [
+        "meta",
+        "seo",
+        "head",
+        "opengraph",
+        "twitter",
+        "schema"
+    ],
+    "examples": [
+        {
+            "name": "Landing Page SEO",
+            "inputs": {
+                "title": "Bricks - Composants UI pour l'IA",
+                "description": "Un système de composants que l'IA peut assembler pour créer n'importe quelle interface.",
+                "canonical": "https:\/\/bricks.dev\/",
+                "og": {
+                    "type": "website",
+                    "image": "https:\/\/bricks.dev\/images\/og-cover.png",
+                    "siteName": "Bricks"
+                },
+                "twitter": {
+                    "site": "@bricks_dev"
+                },
+                "schema": {
+                    "type": "WebSite",
+                    "name": "Bricks",
+                    "url": "https:\/\/bricks.dev\/"
+                }
+            }
+        },
+        {
+            "name": "Article SEO",
+            "inputs": {
+                "title": "Comment créer des composants avec Bricks",
+                "description": "Guide complet pour créer des composants UI réutilisables avec Bricks.",
+                "canonical": "https:\/\/bricks.dev\/blog\/creer-composants",
+                "og": {
+                    "type": "article",
+                    "image": "https:\/\/bricks.dev\/images\/article-cover.png"
+                },
+                "schema": {
+                    "type": "Article",
+                    "headline": "Comment créer des composants avec Bricks",
+                    "author": "Équipe Bricks",
+                    "datePublished": "2026-01-15"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,190 @@
+{
+    "id": "radio",
+    "version": "1.0.0",
+    "category": "form.primitive",
+    "description": "Groupe de boutons radio pour sélection unique",
+    "inputs": {
+        "type": "object",
+        "binding": {
+            "property": "value",
+            "attribute": "data-checked",
+            "type": "string",
+            "description": "La valeur sélectionnée. Le radio correspondant aura data-checked."
+        },
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Nom du groupe radio (requis)"
+            },
+            "options": {
+                "type": "array",
+                "description": "Options radio [{value, label, disabled?, checked?}]",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        },
+                        "label": {
+                            "type": "string"
+                        },
+                        "disabled": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "checked": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Description sous le label"
+                        }
+                    }
+                }
+            },
+            "value": {
+                "type": "string",
+                "description": "Valeur sélectionnée par défaut."
+            },
+            "bind": {
+                "type": "string",
+                "nullable": true,
+                "description": "Chemin binding. Génère data-value."
+            },
+            "direction": {
+                "type": "string",
+                "enum": [
+                    "vertical",
+                    "horizontal"
+                ],
+                "default": "vertical"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "card",
+                    "button"
+                ],
+                "default": "default",
+                "description": "Style: default (classique), card (encadré), button (boutons)"
+            },
+            "required": {
+                "type": "boolean",
+                "default": false
+            },
+            "disabled": {
+                "type": "boolean",
+                "default": false
+            },
+            "error": {
+                "type": "string",
+                "description": "Message d'erreur"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "name",
+            "options"
+        ]
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "radio",
+        "form",
+        "input",
+        "selection"
+    ],
+    "examples": [
+        {
+            "name": "Radio simple",
+            "inputs": {
+                "name": "gender",
+                "options": [
+                    {
+                        "value": "male",
+                        "label": "Homme"
+                    },
+                    {
+                        "value": "female",
+                        "label": "Femme"
+                    },
+                    {
+                        "value": "other",
+                        "label": "Autre"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Radio card avec descriptions",
+            "inputs": {
+                "name": "plan",
+                "variant": "card",
+                "options": [
+                    {
+                        "value": "free",
+                        "label": "Gratuit",
+                        "description": "Pour les petits projets"
+                    },
+                    {
+                        "value": "pro",
+                        "label": "Pro",
+                        "description": "Pour les équipes",
+                        "checked": true
+                    },
+                    {
+                        "value": "enterprise",
+                        "label": "Enterprise",
+                        "description": "Pour les grandes organisations"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Radio button horizontal",
+            "inputs": {
+                "name": "size",
+                "variant": "button",
+                "direction": "horizontal",
+                "options": [
+                    {
+                        "value": "sm",
+                        "label": "S"
+                    },
+                    {
+                        "value": "md",
+                        "label": "M",
+                        "checked": true
+                    },
+                    {
+                        "value": "lg",
+                        "label": "L"
+                    },
+                    {
+                        "value": "xl",
+                        "label": "XL"
+                    }
+                ]
+            }
+        }
+    ]
+}

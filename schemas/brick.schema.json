@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://bricks.ascito.fr/schemas/brick.schema.json",
+  "title": "Brick Schema",
+  "description": "Schema for defining a Bricks component",
+  "type": "object",
+  "required": ["id", "version", "category", "description", "inputs", "tags"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Unique identifier for the brick"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Semantic version of the brick"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "ui.primitive",
+        "ui.composite",
+        "form.primitive",
+        "form.composite",
+        "layout.primitive",
+        "layout.composite",
+        "data.primitive",
+        "meta"
+      ],
+      "description": "Hierarchical category of the brick"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Human-readable description of the brick"
+    },
+    "inputs": {
+      "type": "object",
+      "description": "JSON Schema defining the brick's inputs",
+      "properties": {
+        "type": {
+          "const": "object"
+        },
+        "properties": {
+          "type": "object"
+        },
+        "required": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["type", "properties"]
+    },
+    "outputs": {
+      "type": "array",
+      "description": "Events or outputs the brick can emit",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Tags for categorization and search"
+    },
+    "examples": {
+      "type": "array",
+      "description": "Example configurations",
+      "items": {
+        "type": "object",
+        "required": ["name", "inputs"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Example name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Example description"
+          },
+          "inputs": {
+            "type": "object",
+            "description": "Example input values"
+          }
+        }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "description": "Compatibility information",
+      "properties": {
+        "parents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Brick IDs that can contain this brick"
+        },
+        "children": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Brick IDs this brick can contain"
+        }
+      }
+    },
+    "deprecated": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this brick is deprecated"
+    },
+    "since": {
+      "type": "string",
+      "description": "Version when this brick was introduced"
+    }
+  },
+  "additionalProperties": false
+}

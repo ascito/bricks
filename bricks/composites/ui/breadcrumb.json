@@ -1,0 +1,124 @@
+{
+    "id": "breadcrumb",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Fil d'Ariane pour la navigation hiérarchique",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "items": {
+                "type": "array",
+                "description": "Liste des éléments du fil d'Ariane",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "label": {
+                            "type": "string",
+                            "description": "Texte affiché"
+                        },
+                        "href": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "Lien (null pour le dernier élément)"
+                        },
+                        "icon": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "Icône optionnelle"
+                        }
+                    },
+                    "required": [
+                        "label"
+                    ]
+                }
+            },
+            "separator": {
+                "type": "string",
+                "enum": [
+                    "chevron",
+                    "slash",
+                    "arrow",
+                    "dot"
+                ],
+                "default": "chevron",
+                "description": "Type de séparateur entre les éléments"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "homeIcon": {
+                "type": "boolean",
+                "default": false,
+                "description": "Afficher une icône maison pour le premier élément"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": [
+            "items"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "navigation",
+        "breadcrumb",
+        "path"
+    ],
+    "examples": [
+        {
+            "name": "Breadcrumb simple",
+            "inputs": {
+                "items": [
+                    {
+                        "label": "Accueil",
+                        "href": "\/"
+                    },
+                    {
+                        "label": "Formations",
+                        "href": "\/formations"
+                    },
+                    {
+                        "label": "Laravel Avancé"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Breadcrumb avec icône maison",
+            "inputs": {
+                "items": [
+                    {
+                        "label": "Accueil",
+                        "href": "\/"
+                    },
+                    {
+                        "label": "Produits",
+                        "href": "\/produits"
+                    },
+                    {
+                        "label": "Catégorie",
+                        "href": "\/produits\/categorie"
+                    },
+                    {
+                        "label": "Mon produit"
+                    }
+                ],
+                "homeIcon": true,
+                "separator": "slash"
+            }
+        }
+    ]
+}

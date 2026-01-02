@@ -1,0 +1,124 @@
+{
+    "id": "popover",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Bulle contextuelle avec contenu riche (slots), similaire à tooltip mais pour contenu complexe",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "position": {
+                "type": "string",
+                "enum": [
+                    "top",
+                    "bottom",
+                    "left",
+                    "right",
+                    "top-start",
+                    "top-end",
+                    "bottom-start",
+                    "bottom-end"
+                ],
+                "default": "bottom"
+            },
+            "trigger": {
+                "type": "string",
+                "enum": [
+                    "click",
+                    "hover",
+                    "focus"
+                ],
+                "default": "click"
+            },
+            "title": {
+                "type": "string",
+                "description": "Titre optionnel du popover"
+            },
+            "arrow": {
+                "type": "boolean",
+                "default": true
+            },
+            "closeButton": {
+                "type": "boolean",
+                "default": false
+            },
+            "closeOnClickOutside": {
+                "type": "boolean",
+                "default": true
+            },
+            "width": {
+                "type": "string",
+                "enum": [
+                    "auto",
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "auto"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "dark"
+                ],
+                "default": "default"
+            },
+            "offset": {
+                "type": "integer",
+                "default": 8,
+                "description": "Distance du trigger en pixels"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [],
+        "slots": {
+            "trigger": {
+                "description": "Élément déclencheur du popover"
+            },
+            "children": {
+                "description": "Contenu du popover"
+            }
+        }
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "popover",
+        "tooltip",
+        "overlay",
+        "contextual",
+        "dropdown"
+    ],
+    "examples": [
+        {
+            "name": "Popover simple",
+            "inputs": {
+                "title": "Information",
+                "position": "bottom"
+            }
+        },
+        {
+            "name": "Popover avec close",
+            "inputs": {
+                "title": "Détails",
+                "closeButton": true,
+                "width": "md"
+            }
+        },
+        {
+            "name": "Popover hover",
+            "inputs": {
+                "trigger": "hover",
+                "position": "right",
+                "arrow": true
+            }
+        }
+    ]
+}

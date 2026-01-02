@@ -1,0 +1,133 @@
+{
+    "id": "preview-panel",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Panneau d'aperçu avec toolbar et zone de rendu. Idéal pour playground, éditeur, prévisualisation.",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "description": "Titre du panneau",
+                "default": "Aperçu"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "bordered",
+                    "elevated",
+                    "minimal"
+                ],
+                "default": "default"
+            },
+            "background": {
+                "type": "string",
+                "enum": [
+                    "white",
+                    "gray",
+                    "checkered",
+                    "dark"
+                ],
+                "default": "white",
+                "description": "Fond de la zone d'aperçu"
+            },
+            "showToolbar": {
+                "type": "boolean",
+                "default": true
+            },
+            "showRefresh": {
+                "type": "boolean",
+                "default": true
+            },
+            "showFullscreen": {
+                "type": "boolean",
+                "default": true
+            },
+            "showViewportToggle": {
+                "type": "boolean",
+                "description": "Afficher les boutons desktop\/tablet\/mobile",
+                "default": false
+            },
+            "defaultViewport": {
+                "type": "string",
+                "enum": [
+                    "desktop",
+                    "tablet",
+                    "mobile"
+                ],
+                "default": "desktop"
+            },
+            "minHeight": {
+                "type": "string",
+                "default": "300px"
+            },
+            "maxHeight": {
+                "type": "string",
+                "default": "600px"
+            },
+            "resizable": {
+                "type": "boolean",
+                "default": false
+            },
+            "loading": {
+                "type": "boolean",
+                "default": false
+            },
+            "error": {
+                "type": "string",
+                "nullable": true,
+                "description": "Message d'erreur à afficher"
+            },
+            "emptyMessage": {
+                "type": "string",
+                "default": "Aucun aperçu disponible"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "preview",
+        "panel",
+        "playground",
+        "editor",
+        "render",
+        "accepts:children"
+    ],
+    "examples": [
+        {
+            "name": "Aperçu simple",
+            "inputs": {
+                "title": "Aperçu du composant"
+            }
+        },
+        {
+            "name": "Avec viewport toggle",
+            "inputs": {
+                "title": "Preview",
+                "showViewportToggle": true,
+                "background": "checkered"
+            }
+        },
+        {
+            "name": "Mode chargement",
+            "inputs": {
+                "title": "Génération...",
+                "loading": true
+            }
+        },
+        {
+            "name": "Avec erreur",
+            "inputs": {
+                "title": "Aperçu",
+                "error": "Erreur de syntaxe JSON à la ligne 5"
+            }
+        }
+    ]
+}

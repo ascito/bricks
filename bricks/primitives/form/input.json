@@ -1,0 +1,155 @@
+{
+    "id": "input",
+    "version": "1.0.0",
+    "category": "form.primitive",
+    "description": "Champ de saisie texte avec validation",
+    "inputs": {
+        "type": "object",
+        "binding": {
+            "property": "value",
+            "attribute": "data-value",
+            "type": "string"
+        },
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Nom du champ (attribut name)"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "text",
+                    "email",
+                    "password",
+                    "number",
+                    "tel",
+                    "url",
+                    "search",
+                    "date",
+                    "time",
+                    "datetime-local"
+                ],
+                "default": "text"
+            },
+            "placeholder": {
+                "type": "string",
+                "default": ""
+            },
+            "value": {
+                "type": "string",
+                "default": "",
+                "description": "Valeur initiale (si bind non fourni)."
+            },
+            "bind": {
+                "type": "string",
+                "nullable": true,
+                "description": "Chemin binding (ex: user.email). Résout la valeur depuis data et génère data-value."
+            },
+            "required": {
+                "type": "boolean",
+                "default": false
+            },
+            "disabled": {
+                "type": "boolean",
+                "default": false
+            },
+            "readonly": {
+                "type": "boolean",
+                "default": false
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "filled",
+                    "outlined"
+                ],
+                "default": "default"
+            },
+            "error": {
+                "type": "boolean",
+                "default": false,
+                "description": "Affiche l'état d'erreur"
+            },
+            "min": {
+                "type": "string",
+                "nullable": true
+            },
+            "max": {
+                "type": "string",
+                "nullable": true
+            },
+            "minLength": {
+                "type": "integer",
+                "nullable": true
+            },
+            "maxLength": {
+                "type": "integer",
+                "nullable": true
+            },
+            "pattern": {
+                "type": "string",
+                "nullable": true
+            },
+            "autocomplete": {
+                "type": "string",
+                "default": "off"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": [
+            "name"
+        ]
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "form",
+        "input",
+        "interactive"
+    ],
+    "examples": [
+        {
+            "name": "Champ email",
+            "inputs": {
+                "name": "email",
+                "type": "email",
+                "placeholder": "votre@email.com",
+                "required": true
+            }
+        },
+        {
+            "name": "Champ mot de passe",
+            "inputs": {
+                "name": "password",
+                "type": "password",
+                "placeholder": "Mot de passe",
+                "minLength": 8
+            }
+        },
+        {
+            "name": "Champ avec erreur",
+            "inputs": {
+                "name": "username",
+                "placeholder": "Nom d'utilisateur",
+                "error": true
+            }
+        }
+    ]
+}

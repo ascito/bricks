@@ -1,0 +1,96 @@
+{
+    "id": "social-login",
+    "version": "1.0.0",
+    "category": "ui.primitive",
+    "description": "Boutons de connexion sociale (Google, Facebook, GitHub, etc.)",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "providers": {
+                "type": "array",
+                "description": "Liste des providers à afficher",
+                "items": {
+                    "type": "string",
+                    "enum": [
+                        "google",
+                        "facebook",
+                        "github",
+                        "twitter",
+                        "linkedin"
+                    ]
+                },
+                "default": [
+                    "google",
+                    "github"
+                ]
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "buttons",
+                    "icons"
+                ],
+                "default": "buttons"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "direction": {
+                "type": "string",
+                "enum": [
+                    "horizontal",
+                    "vertical"
+                ],
+                "default": "vertical"
+            },
+            "dividerText": {
+                "type": "string",
+                "default": "ou",
+                "description": "Texte du séparateur (vide = pas de séparateur)"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "auth",
+        "oauth",
+        "social",
+        "login"
+    ],
+    "examples": [
+        {
+            "name": "Login social complet",
+            "inputs": {
+                "providers": [
+                    "google",
+                    "facebook",
+                    "github"
+                ],
+                "dividerText": "ou continuer avec"
+            }
+        },
+        {
+            "name": "Icônes uniquement",
+            "inputs": {
+                "providers": [
+                    "google",
+                    "github"
+                ],
+                "variant": "icons",
+                "direction": "horizontal"
+            }
+        }
+    ]
+}

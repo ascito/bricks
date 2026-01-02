@@ -1,0 +1,87 @@
+{
+    "id": "article",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Conteneur article avec styles prose et slots pour header\/content\/footer",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "maxWidth": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "full"
+                ],
+                "default": "md",
+                "description": "Largeur max du contenu (sm=640px, md=768px, lg=1024px)"
+            },
+            "prose": {
+                "type": "boolean",
+                "default": true,
+                "description": "Appliquer les styles prose (typographie article)"
+            },
+            "centered": {
+                "type": "boolean",
+                "default": true,
+                "description": "Centrer l'article horizontalement"
+            },
+            "spacing": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md",
+                "description": "Espacement vertical entre les sections"
+            },
+            "showDividers": {
+                "type": "boolean",
+                "default": false,
+                "description": "Afficher des séparateurs entre sections"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "blog",
+        "article",
+        "prose",
+        "accepts:children"
+    ],
+    "examples": [
+        {
+            "name": "Article standard",
+            "inputs": {
+                "maxWidth": "md",
+                "prose": true
+            }
+        },
+        {
+            "name": "Article large",
+            "inputs": {
+                "maxWidth": "lg",
+                "spacing": "lg"
+            }
+        },
+        {
+            "name": "Article avec séparateurs",
+            "inputs": {
+                "showDividers": true
+            }
+        }
+    ]
+}

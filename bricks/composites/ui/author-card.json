@@ -1,0 +1,121 @@
+{
+    "id": "author-card",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Carte auteur avec avatar, nom, bio et liens sociaux",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Nom de l'auteur"
+            },
+            "avatar": {
+                "type": "string",
+                "description": "URL de l'avatar",
+                "nullable": true
+            },
+            "bio": {
+                "type": "string",
+                "description": "Courte biographie",
+                "nullable": true
+            },
+            "role": {
+                "type": "string",
+                "description": "Rôle ou titre (ex: Développeur Senior)",
+                "nullable": true
+            },
+            "profileUrl": {
+                "type": "string",
+                "description": "Lien vers le profil complet",
+                "nullable": true
+            },
+            "social": {
+                "type": "array",
+                "description": "Liens sociaux [{platform, url}]",
+                "default": []
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "inline",
+                    "card",
+                    "compact"
+                ],
+                "default": "inline"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "showDate": {
+                "type": "boolean",
+                "default": false
+            },
+            "date": {
+                "type": "string",
+                "description": "Date de publication",
+                "nullable": true
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": [
+            "name"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "blog",
+        "author",
+        "profile"
+    ],
+    "examples": [
+        {
+            "name": "Auteur inline",
+            "inputs": {
+                "name": "Marie Dupont",
+                "avatar": "https:\/\/i.pravatar.cc\/100?u=marie",
+                "role": "Rédactrice Tech"
+            }
+        },
+        {
+            "name": "Carte complète",
+            "inputs": {
+                "name": "Jean Martin",
+                "avatar": "https:\/\/i.pravatar.cc\/100?u=jean",
+                "bio": "Développeur full-stack passionné par les nouvelles technologies.",
+                "role": "Lead Developer",
+                "variant": "card",
+                "social": [
+                    {
+                        "platform": "twitter",
+                        "url": "https:\/\/twitter.com\/jean"
+                    },
+                    {
+                        "platform": "github",
+                        "url": "https:\/\/github.com\/jean"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Compact avec date",
+            "inputs": {
+                "name": "Sophie Bernard",
+                "avatar": "https:\/\/i.pravatar.cc\/100?u=sophie",
+                "variant": "compact",
+                "showDate": true,
+                "date": "15 janvier 2026"
+            }
+        }
+    ]
+}

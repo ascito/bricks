@@ -1,0 +1,181 @@
+{
+    "id": "stats",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Chiffres clés avec animation de comptage",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "description": "Valeur à afficher (ex: \"500+\", \"98%\", \"4.8\")"
+                        },
+                        "label": {
+                            "type": "string",
+                            "description": "Label sous la valeur"
+                        },
+                        "prefix": {
+                            "type": "string",
+                            "description": "Préfixe (ex: \"$\", \"€\")"
+                        },
+                        "suffix": {
+                            "type": "string",
+                            "description": "Suffixe (ex: \"%\", \"+\", \"k\")"
+                        },
+                        "icon": {
+                            "type": "string",
+                            "description": "Icône optionnelle"
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Description additionnelle"
+                        }
+                    },
+                    "required": [
+                        "value",
+                        "label"
+                    ]
+                }
+            },
+            "columns": {
+                "type": "integer",
+                "enum": [
+                    2,
+                    3,
+                    4,
+                    5
+                ],
+                "default": 4
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "card",
+                    "minimal",
+                    "bordered"
+                ],
+                "default": "default"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl"
+                ],
+                "default": "lg"
+            },
+            "align": {
+                "type": "string",
+                "enum": [
+                    "left",
+                    "center",
+                    "right"
+                ],
+                "default": "center"
+            },
+            "animated": {
+                "type": "boolean",
+                "default": true,
+                "description": "Animer les chiffres au scroll"
+            },
+            "duration": {
+                "type": "integer",
+                "default": 2000,
+                "description": "Durée animation en ms"
+            },
+            "color": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "primary",
+                    "gradient"
+                ],
+                "default": "default"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "items"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "stats",
+        "numbers",
+        "metrics",
+        "kpi",
+        "counter",
+        "animation"
+    ],
+    "examples": [
+        {
+            "name": "Stats entreprise",
+            "inputs": {
+                "items": [
+                    {
+                        "value": "500",
+                        "suffix": "+",
+                        "label": "Entreprises formées"
+                    },
+                    {
+                        "value": "98",
+                        "suffix": "%",
+                        "label": "Satisfaction client"
+                    },
+                    {
+                        "value": "25",
+                        "label": "Formateurs experts"
+                    },
+                    {
+                        "value": "4.8",
+                        "suffix": "\/5",
+                        "label": "Note moyenne"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Stats avec icônes",
+            "inputs": {
+                "variant": "card",
+                "columns": 3,
+                "items": [
+                    {
+                        "value": "10",
+                        "suffix": "k+",
+                        "label": "Utilisateurs",
+                        "icon": "users"
+                    },
+                    {
+                        "value": "99.9",
+                        "suffix": "%",
+                        "label": "Uptime",
+                        "icon": "zap"
+                    },
+                    {
+                        "value": "24",
+                        "suffix": "\/7",
+                        "label": "Support",
+                        "icon": "clock"
+                    }
+                ]
+            }
+        }
+    ]
+}

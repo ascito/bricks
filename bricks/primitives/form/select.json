@@ -1,0 +1,218 @@
+{
+    "id": "select",
+    "version": "1.0.0",
+    "category": "form.primitive",
+    "description": "Liste déroulante avec options, optgroups et recherche optionnelle",
+    "inputs": {
+        "type": "object",
+        "binding": {
+            "property": "value",
+            "attribute": "data-value",
+            "type": "string"
+        },
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Nom du champ (attribut name)"
+            },
+            "options": {
+                "type": "array",
+                "description": "Liste des options [{value, label, disabled?, selected?}]",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        },
+                        "label": {
+                            "type": "string"
+                        },
+                        "disabled": {
+                            "type": "boolean"
+                        },
+                        "selected": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            },
+            "groups": {
+                "type": "array",
+                "description": "Optgroups [{label, options: [...]}]",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "label": {
+                            "type": "string"
+                        },
+                        "options": {
+                            "type": "array"
+                        }
+                    }
+                }
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "Texte affiché quand aucune option sélectionnée"
+            },
+            "value": {
+                "type": "string",
+                "description": "Valeur sélectionnée par défaut."
+            },
+            "bind": {
+                "type": "string",
+                "nullable": true,
+                "description": "Chemin binding (ex: user.country). Génère data-value."
+            },
+            "multiple": {
+                "type": "boolean",
+                "default": false,
+                "description": "Autoriser la sélection multiple"
+            },
+            "searchable": {
+                "type": "boolean",
+                "default": false,
+                "description": "Activer la recherche dans les options"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "filled",
+                    "outlined"
+                ],
+                "default": "default"
+            },
+            "disabled": {
+                "type": "boolean",
+                "default": false
+            },
+            "required": {
+                "type": "boolean",
+                "default": false
+            },
+            "error": {
+                "type": "string",
+                "description": "Message d'erreur"
+            },
+            "hint": {
+                "type": "string",
+                "description": "Texte d'aide"
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "default": false
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "name",
+            "options"
+        ]
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "form",
+        "select",
+        "dropdown",
+        "input"
+    ],
+    "examples": [
+        {
+            "name": "Select simple",
+            "inputs": {
+                "name": "country",
+                "placeholder": "Choisir un pays",
+                "options": [
+                    {
+                        "value": "fr",
+                        "label": "France"
+                    },
+                    {
+                        "value": "be",
+                        "label": "Belgique"
+                    },
+                    {
+                        "value": "ch",
+                        "label": "Suisse"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Select avec groupes",
+            "inputs": {
+                "name": "fruit",
+                "placeholder": "Choisir un fruit",
+                "groups": [
+                    {
+                        "label": "Agrumes",
+                        "options": [
+                            {
+                                "value": "orange",
+                                "label": "Orange"
+                            },
+                            {
+                                "value": "citron",
+                                "label": "Citron"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Baies",
+                        "options": [
+                            {
+                                "value": "fraise",
+                                "label": "Fraise"
+                            },
+                            {
+                                "value": "framboise",
+                                "label": "Framboise"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Select multiple searchable",
+            "inputs": {
+                "name": "tags",
+                "placeholder": "Rechercher des tags...",
+                "multiple": true,
+                "searchable": true,
+                "options": [
+                    {
+                        "value": "php",
+                        "label": "PHP"
+                    },
+                    {
+                        "value": "js",
+                        "label": "JavaScript"
+                    },
+                    {
+                        "value": "python",
+                        "label": "Python"
+                    }
+                ]
+            }
+        }
+    ]
+}

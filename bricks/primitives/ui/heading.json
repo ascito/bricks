@@ -1,0 +1,111 @@
+{
+    "id": "heading",
+    "version": "1.0.0",
+    "category": "ui.primitive",
+    "description": "Titre de niveau h1 à h6",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "content": {
+                "type": "string",
+                "description": "Contenu du titre",
+                "default": "Heading"
+            },
+            "level": {
+                "type": "integer",
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "default": 2,
+                "description": "Niveau du titre (1-6)"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl",
+                    "3xl",
+                    "4xl"
+                ],
+                "nullable": true,
+                "description": "Taille visuelle (surcharge le niveau)"
+            },
+            "weight": {
+                "type": "string",
+                "enum": [
+                    "normal",
+                    "medium",
+                    "semibold",
+                    "bold",
+                    "extrabold"
+                ],
+                "default": "bold"
+            },
+            "color": {
+                "type": "string",
+                "default": "inherit"
+            },
+            "align": {
+                "type": "string",
+                "enum": [
+                    "left",
+                    "center",
+                    "right"
+                ],
+                "default": "left"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": [
+            "content"
+        ]
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "text",
+        "heading",
+        "title"
+    ],
+    "examples": [
+        {
+            "name": "Titre principal",
+            "inputs": {
+                "content": "Bienvenue",
+                "level": 1
+            }
+        },
+        {
+            "name": "Sous-titre centré",
+            "inputs": {
+                "content": "Notre équipe",
+                "level": 2,
+                "align": "center"
+            }
+        },
+        {
+            "name": "Petit titre de section",
+            "inputs": {
+                "content": "Détails",
+                "level": 3,
+                "size": "sm"
+            }
+        }
+    ]
+}

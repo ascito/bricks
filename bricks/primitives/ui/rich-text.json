@@ -1,0 +1,64 @@
+{
+    "id": "rich-text",
+    "version": "1.0.0",
+    "category": "ui.primitive",
+    "description": "Contenu HTML riche (paragraphes, listes, code, citations...)",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "content": {
+                "type": "string",
+                "description": "Contenu HTML (non échappé)",
+                "default": ""
+            },
+            "tag": {
+                "type": "string",
+                "enum": [
+                    "div",
+                    "section",
+                    "article"
+                ],
+                "default": "div"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "text",
+        "html",
+        "content",
+        "article"
+    ],
+    "examples": [
+        {
+            "name": "Paragraphe simple",
+            "inputs": {
+                "content": "<p>Ceci est un paragraphe avec du <strong>texte en gras<\/strong> et en <em>italique<\/em>.<\/p>"
+            }
+        },
+        {
+            "name": "Liste à puces",
+            "inputs": {
+                "content": "<ul><li>Premier élément<\/li><li>Deuxième élément<\/li><li>Troisième élément<\/li><\/ul>"
+            }
+        },
+        {
+            "name": "Bloc de code",
+            "inputs": {
+                "content": "<pre><code>const hello = \"world\";\\nconsole.log(hello);<\/code><\/pre>"
+            }
+        },
+        {
+            "name": "Citation",
+            "inputs": {
+                "content": "<blockquote>La simplicité est la sophistication suprême.<footer>— Léonard de Vinci<\/footer><\/blockquote>"
+            }
+        }
+    ]
+}

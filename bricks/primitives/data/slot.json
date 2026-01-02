@@ -1,0 +1,85 @@
+{
+    "id": "slot",
+    "version": "1.0.0",
+    "category": "data.primitive",
+    "description": "Emplacement nommé pour injection de contenu (comme les slots Vue\/Svelte)",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "default": "default",
+                "description": "Nom du slot (pour référencement)"
+            },
+            "fallback": {
+                "type": "string",
+                "nullable": true,
+                "description": "Contenu texte par défaut si le slot est vide"
+            },
+            "required": {
+                "type": "boolean",
+                "default": false,
+                "description": "Le slot doit-il obligatoirement être rempli"
+            },
+            "wrapper": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "div",
+                    "span",
+                    "section",
+                    "article",
+                    "aside",
+                    "main",
+                    "header",
+                    "footer"
+                ],
+                "default": "none",
+                "description": "Élément HTML qui entoure le contenu du slot"
+            },
+            "className": {
+                "type": "string",
+                "default": "",
+                "description": "Classes CSS pour le wrapper"
+            },
+            "id": {
+                "type": "string",
+                "nullable": true,
+                "description": "ID HTML du wrapper"
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "data",
+        "primitive",
+        "slot",
+        "placeholder",
+        "template",
+        "layout"
+    ],
+    "examples": [
+        {
+            "name": "Slot simple",
+            "inputs": {
+                "name": "content"
+            }
+        },
+        {
+            "name": "Slot header avec fallback",
+            "inputs": {
+                "name": "header",
+                "fallback": "Titre par défaut",
+                "wrapper": "header"
+            }
+        },
+        {
+            "name": "Slot sidebar",
+            "inputs": {
+                "name": "sidebar",
+                "wrapper": "aside",
+                "className": "sidebar"
+            }
+        }
+    ]
+}

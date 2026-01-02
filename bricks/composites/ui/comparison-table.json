@@ -1,0 +1,206 @@
+{
+    "id": "comparison-table",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Tableau comparatif de produits\/services avec features",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "products": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "price": {
+                            "type": "string"
+                        },
+                        "period": {
+                            "type": "string"
+                        },
+                        "highlight": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "cta": {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "type": "string"
+                                },
+                                "href": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "name"
+                    ]
+                },
+                "description": "Produits\/services à comparer (colonnes)"
+            },
+            "features": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "Nom de la feature"
+                        },
+                        "category": {
+                            "type": "string",
+                            "description": "Catégorie optionnelle"
+                        },
+                        "values": {
+                            "type": "array",
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "description": "Valeurs pour chaque produit (true\/false ou texte)"
+                        },
+                        "tooltip": {
+                            "type": "string",
+                            "description": "Info-bulle explicative"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "values"
+                    ]
+                },
+                "description": "Features à comparer (lignes)"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "striped",
+                    "bordered",
+                    "minimal"
+                ],
+                "default": "default"
+            },
+            "stickyHeader": {
+                "type": "boolean",
+                "default": true
+            },
+            "stickyFirstColumn": {
+                "type": "boolean",
+                "default": true
+            },
+            "showCategories": {
+                "type": "boolean",
+                "default": true
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "products",
+            "features"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "comparison",
+        "table",
+        "pricing",
+        "features",
+        "vs"
+    ],
+    "examples": [
+        {
+            "name": "Comparatif SaaS",
+            "inputs": {
+                "products": [
+                    {
+                        "name": "Starter",
+                        "price": "9€",
+                        "period": "\/mois"
+                    },
+                    {
+                        "name": "Pro",
+                        "price": "29€",
+                        "period": "\/mois",
+                        "highlight": true
+                    },
+                    {
+                        "name": "Enterprise",
+                        "price": "Sur devis"
+                    }
+                ],
+                "features": [
+                    {
+                        "name": "Utilisateurs",
+                        "values": [
+                            "1",
+                            "10",
+                            "Illimité"
+                        ]
+                    },
+                    {
+                        "name": "Stockage",
+                        "values": [
+                            "5 Go",
+                            "50 Go",
+                            "500 Go"
+                        ]
+                    },
+                    {
+                        "name": "Support email",
+                        "values": [
+                            true,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "name": "Support prioritaire",
+                        "values": [
+                            false,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "name": "API access",
+                        "values": [
+                            false,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "name": "SSO",
+                        "values": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

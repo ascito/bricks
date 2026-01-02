@@ -1,0 +1,96 @@
+{
+    "id": "conditional",
+    "version": "1.0.0",
+    "category": "data.primitive",
+    "description": "Affichage conditionnel selon une expression ou variable",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "if": {
+                "type": "string",
+                "description": "Chemin de variable à évaluer (ex: \"user.isAdmin\", \"cart.items.length\")"
+            },
+            "equals": {
+                "type": [
+                    "string",
+                    "number",
+                    "boolean"
+                ],
+                "nullable": true,
+                "description": "Valeur attendue pour la comparaison (si non spécifié, évalue la véracité)"
+            },
+            "not": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inverser la condition"
+            },
+            "operator": {
+                "type": "string",
+                "enum": [
+                    "equals",
+                    "not_equals",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "contains",
+                    "empty",
+                    "not_empty"
+                ],
+                "default": "equals",
+                "description": "Opérateur de comparaison"
+            },
+            "value": {
+                "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                ],
+                "nullable": true,
+                "description": "Valeur de comparaison (alternative à equals)"
+            }
+        },
+        "required": [
+            "if"
+        ]
+    },
+    "tags": [
+        "data",
+        "primitive",
+        "conditional",
+        "if",
+        "logic",
+        "control"
+    ],
+    "examples": [
+        {
+            "name": "Afficher si admin",
+            "inputs": {
+                "if": "user.isAdmin"
+            }
+        },
+        {
+            "name": "Afficher si role = manager",
+            "inputs": {
+                "if": "user.role",
+                "equals": "manager"
+            }
+        },
+        {
+            "name": "Afficher si panier non vide",
+            "inputs": {
+                "if": "cart.items",
+                "operator": "not_empty"
+            }
+        },
+        {
+            "name": "Afficher si prix > 100",
+            "inputs": {
+                "if": "product.price",
+                "operator": "gt",
+                "value": 100
+            }
+        }
+    ]
+}

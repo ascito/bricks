@@ -1,0 +1,162 @@
+{
+    "id": "marquee",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Défilement horizontal infini pour logos clients, partenaires, témoignages",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "items": {
+                "type": "array",
+                "description": "Items à défiler [{src, alt, href?} pour images ou {content} pour texte]",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "type": "string",
+                            "description": "URL de l'image"
+                        },
+                        "alt": {
+                            "type": "string"
+                        },
+                        "href": {
+                            "type": "string",
+                            "description": "Lien optionnel"
+                        },
+                        "content": {
+                            "type": "string",
+                            "description": "Contenu texte (alternatif à src)"
+                        }
+                    }
+                }
+            },
+            "speed": {
+                "type": "string",
+                "enum": [
+                    "slow",
+                    "normal",
+                    "fast"
+                ],
+                "default": "normal",
+                "description": "Vitesse de défilement"
+            },
+            "direction": {
+                "type": "string",
+                "enum": [
+                    "left",
+                    "right"
+                ],
+                "default": "left"
+            },
+            "pauseOnHover": {
+                "type": "boolean",
+                "default": true
+            },
+            "gap": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl"
+                ],
+                "default": "lg"
+            },
+            "itemHeight": {
+                "type": "string",
+                "default": "48px",
+                "description": "Hauteur des items (images)"
+            },
+            "grayscale": {
+                "type": "boolean",
+                "default": false,
+                "description": "Logos en niveaux de gris"
+            },
+            "fade": {
+                "type": "boolean",
+                "default": true,
+                "description": "Dégradé sur les bords"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "items"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "marquee",
+        "scroll",
+        "logos",
+        "clients",
+        "animation",
+        "infinite"
+    ],
+    "examples": [
+        {
+            "name": "Logos clients",
+            "inputs": {
+                "items": [
+                    {
+                        "src": "\/images\/logo1.svg",
+                        "alt": "Client 1"
+                    },
+                    {
+                        "src": "\/images\/logo2.svg",
+                        "alt": "Client 2"
+                    },
+                    {
+                        "src": "\/images\/logo3.svg",
+                        "alt": "Client 3"
+                    }
+                ],
+                "grayscale": true,
+                "pauseOnHover": true
+            }
+        },
+        {
+            "name": "Marquee texte",
+            "inputs": {
+                "items": [
+                    {
+                        "content": "Livraison gratuite"
+                    },
+                    {
+                        "content": "Retours sous 30 jours"
+                    },
+                    {
+                        "content": "Paiement sécurisé"
+                    }
+                ],
+                "speed": "slow"
+            }
+        },
+        {
+            "name": "Logos avec liens",
+            "inputs": {
+                "items": [
+                    {
+                        "src": "\/images\/partner1.png",
+                        "alt": "Partner 1",
+                        "href": "#"
+                    },
+                    {
+                        "src": "\/images\/partner2.png",
+                        "alt": "Partner 2",
+                        "href": "#"
+                    }
+                ],
+                "direction": "right",
+                "fade": true
+            }
+        }
+    ]
+}

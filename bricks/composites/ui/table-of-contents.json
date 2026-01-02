@@ -1,0 +1,135 @@
+{
+    "id": "table-of-contents",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Table des matières auto-générée depuis les titres",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "items": {
+                "type": "array",
+                "description": "Liste des entrées [{id, text, level}] (ou auto depuis contentSelector)",
+                "default": []
+            },
+            "contentSelector": {
+                "type": "string",
+                "description": "Sélecteur CSS du contenu à analyser (ex: .article-content)",
+                "nullable": true
+            },
+            "minLevel": {
+                "type": "integer",
+                "default": 2,
+                "description": "Niveau de titre minimum (h2 = 2)"
+            },
+            "maxLevel": {
+                "type": "integer",
+                "default": 4,
+                "description": "Niveau de titre maximum (h4 = 4)"
+            },
+            "title": {
+                "type": "string",
+                "default": "Sommaire",
+                "description": "Titre de la table des matières"
+            },
+            "showTitle": {
+                "type": "boolean",
+                "default": true
+            },
+            "collapsible": {
+                "type": "boolean",
+                "default": false,
+                "description": "Permettre de réduire\/développer"
+            },
+            "collapsed": {
+                "type": "boolean",
+                "default": false,
+                "description": "État initial si collapsible"
+            },
+            "numbered": {
+                "type": "boolean",
+                "default": false,
+                "description": "Numéroter les entrées"
+            },
+            "sticky": {
+                "type": "boolean",
+                "default": false,
+                "description": "Position sticky en sidebar"
+            },
+            "highlightCurrent": {
+                "type": "boolean",
+                "default": true,
+                "description": "Surligner l'entrée courante au scroll"
+            },
+            "smoothScroll": {
+                "type": "boolean",
+                "default": true
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "bordered",
+                    "minimal",
+                    "card"
+                ],
+                "default": "default"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "blog",
+        "navigation",
+        "toc"
+    ],
+    "examples": [
+        {
+            "name": "TOC simple",
+            "inputs": {
+                "items": [
+                    {
+                        "id": "intro",
+                        "text": "Introduction",
+                        "level": 2
+                    },
+                    {
+                        "id": "features",
+                        "text": "Fonctionnalités",
+                        "level": 2
+                    },
+                    {
+                        "id": "install",
+                        "text": "Installation",
+                        "level": 3
+                    },
+                    {
+                        "id": "conclusion",
+                        "text": "Conclusion",
+                        "level": 2
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Auto-générée",
+            "inputs": {
+                "contentSelector": ".article-content",
+                "collapsible": true
+            }
+        },
+        {
+            "name": "Sticky sidebar",
+            "inputs": {
+                "sticky": true,
+                "variant": "card",
+                "highlightCurrent": true
+            }
+        }
+    ]
+}

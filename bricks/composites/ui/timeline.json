@@ -1,0 +1,183 @@
+{
+    "id": "timeline",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Chronologie verticale ou horizontale pour historique, roadmap",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "description": "Date ou période"
+                        },
+                        "title": {
+                            "type": "string",
+                            "description": "Titre de l'événement"
+                        },
+                        "content": {
+                            "type": "string",
+                            "description": "Description (HTML supporté)"
+                        },
+                        "icon": {
+                            "type": "string",
+                            "description": "Icône optionnelle"
+                        },
+                        "status": {
+                            "type": "string",
+                            "enum": [
+                                "completed",
+                                "current",
+                                "upcoming"
+                            ],
+                            "default": "completed"
+                        },
+                        "color": {
+                            "type": "string",
+                            "description": "Couleur personnalisée"
+                        }
+                    },
+                    "required": [
+                        "title"
+                    ]
+                }
+            },
+            "orientation": {
+                "type": "string",
+                "enum": [
+                    "vertical",
+                    "horizontal"
+                ],
+                "default": "vertical"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "alternate",
+                    "compact",
+                    "card"
+                ],
+                "default": "default"
+            },
+            "lineStyle": {
+                "type": "string",
+                "enum": [
+                    "solid",
+                    "dashed",
+                    "dotted"
+                ],
+                "default": "solid"
+            },
+            "markerStyle": {
+                "type": "string",
+                "enum": [
+                    "dot",
+                    "ring",
+                    "icon",
+                    "number"
+                ],
+                "default": "dot"
+            },
+            "color": {
+                "type": "string",
+                "enum": [
+                    "primary",
+                    "secondary",
+                    "success",
+                    "gray"
+                ],
+                "default": "primary"
+            },
+            "animated": {
+                "type": "boolean",
+                "default": true,
+                "description": "Animation au scroll"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "items"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "timeline",
+        "history",
+        "roadmap",
+        "process",
+        "steps"
+    ],
+    "examples": [
+        {
+            "name": "Historique entreprise",
+            "inputs": {
+                "items": [
+                    {
+                        "date": "2018",
+                        "title": "Création",
+                        "content": "Fondation de FormaPro à Paris"
+                    },
+                    {
+                        "date": "2020",
+                        "title": "Expansion",
+                        "content": "Ouverture de 3 nouveaux centres"
+                    },
+                    {
+                        "date": "2022",
+                        "title": "Certification",
+                        "content": "Obtention Qualiopi"
+                    },
+                    {
+                        "date": "2026",
+                        "title": "Aujourd'hui",
+                        "content": "500+ entreprises formées",
+                        "status": "current"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Roadmap produit",
+            "inputs": {
+                "variant": "card",
+                "markerStyle": "icon",
+                "items": [
+                    {
+                        "date": "Q1 2026",
+                        "title": "MVP",
+                        "content": "Lancement beta",
+                        "icon": "check",
+                        "status": "completed"
+                    },
+                    {
+                        "date": "Q2 2026",
+                        "title": "V1.0",
+                        "content": "Release publique",
+                        "icon": "zap",
+                        "status": "current"
+                    },
+                    {
+                        "date": "Q3 2026",
+                        "title": "V2.0",
+                        "content": "Nouvelles features",
+                        "icon": "star",
+                        "status": "upcoming"
+                    }
+                ]
+            }
+        }
+    ]
+}

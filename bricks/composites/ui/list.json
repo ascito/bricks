@@ -1,0 +1,233 @@
+{
+    "id": "list",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Liste d'éléments avec icônes, checks ou numéros",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "text": {
+                            "type": "string",
+                            "description": "Texte principal"
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Description secondaire"
+                        },
+                        "value": {
+                            "type": "string",
+                            "description": "Valeur (prix, durée, etc.)"
+                        },
+                        "icon": {
+                            "type": "string",
+                            "description": "Icône personnalisée"
+                        },
+                        "included": {
+                            "type": "boolean",
+                            "description": "Pour variant=check: true=check vert, false=x rouge"
+                        },
+                        "href": {
+                            "type": "string",
+                            "description": "Lien optionnel"
+                        }
+                    }
+                },
+                "description": "Liste des éléments"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "bullet",
+                    "check",
+                    "number",
+                    "icon",
+                    "none"
+                ],
+                "default": "bullet",
+                "description": "Style de la liste"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "gap": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "divided": {
+                "type": "boolean",
+                "default": false,
+                "description": "Ajouter des séparateurs entre les items"
+            },
+            "columns": {
+                "type": "integer",
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "default": 1,
+                "description": "Nombre de colonnes (responsive)"
+            },
+            "icon": {
+                "type": "string",
+                "description": "Icône par défaut pour variant=icon"
+            },
+            "iconColor": {
+                "type": "string",
+                "enum": [
+                    "primary",
+                    "secondary",
+                    "success",
+                    "muted",
+                    "current"
+                ],
+                "default": "primary"
+            },
+            "showValue": {
+                "type": "boolean",
+                "default": false,
+                "description": "Afficher la colonne valeur à droite"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "items"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "list",
+        "items",
+        "features",
+        "checklist"
+    ],
+    "examples": [
+        {
+            "name": "Liste à puces",
+            "inputs": {
+                "variant": "bullet",
+                "items": [
+                    {
+                        "text": "Premier élément"
+                    },
+                    {
+                        "text": "Deuxième élément"
+                    },
+                    {
+                        "text": "Troisième élément"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Checklist",
+            "inputs": {
+                "variant": "check",
+                "items": [
+                    {
+                        "text": "Fonctionnalité incluse",
+                        "included": true
+                    },
+                    {
+                        "text": "Autre fonctionnalité",
+                        "included": true
+                    },
+                    {
+                        "text": "Non disponible",
+                        "included": false
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Liste numérotée",
+            "inputs": {
+                "variant": "number",
+                "items": [
+                    {
+                        "text": "Première étape",
+                        "description": "Description de l'étape"
+                    },
+                    {
+                        "text": "Deuxième étape",
+                        "description": "Description de l'étape"
+                    },
+                    {
+                        "text": "Troisième étape"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Liste avec valeurs",
+            "inputs": {
+                "variant": "none",
+                "showValue": true,
+                "divided": true,
+                "items": [
+                    {
+                        "text": "Durée",
+                        "value": "3 jours"
+                    },
+                    {
+                        "text": "Participants",
+                        "value": "4-8 personnes"
+                    },
+                    {
+                        "text": "Prix",
+                        "value": "1 500 €"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Liste 2 colonnes avec icônes",
+            "inputs": {
+                "variant": "icon",
+                "icon": "check-circle",
+                "iconColor": "success",
+                "columns": 2,
+                "items": [
+                    {
+                        "text": "Support 24\/7"
+                    },
+                    {
+                        "text": "Mises à jour gratuites"
+                    },
+                    {
+                        "text": "Documentation complète"
+                    },
+                    {
+                        "text": "API REST"
+                    }
+                ]
+            }
+        }
+    ]
+}

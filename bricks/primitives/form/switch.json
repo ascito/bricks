@@ -1,0 +1,118 @@
+{
+    "id": "switch",
+    "version": "1.0.0",
+    "category": "form.primitive",
+    "description": "Toggle on\/off pour activer\/désactiver une option",
+    "inputs": {
+        "type": "object",
+        "binding": {
+            "property": "checked",
+            "attribute": "data-checked",
+            "type": "boolean"
+        },
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Nom du champ"
+            },
+            "label": {
+                "type": "string",
+                "description": "Label à côté du switch"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description sous le label"
+            },
+            "checked": {
+                "type": "boolean",
+                "default": false,
+                "description": "État activé."
+            },
+            "bind": {
+                "type": "string",
+                "nullable": true,
+                "description": "Chemin binding. Génère data-checked."
+            },
+            "disabled": {
+                "type": "boolean",
+                "default": false
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "success",
+                    "primary"
+                ],
+                "default": "primary"
+            },
+            "labelPosition": {
+                "type": "string",
+                "enum": [
+                    "left",
+                    "right"
+                ],
+                "default": "right"
+            },
+            "showLabels": {
+                "type": "boolean",
+                "default": false,
+                "description": "Afficher ON\/OFF dans le switch"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "switch",
+        "toggle",
+        "form",
+        "input",
+        "boolean"
+    ],
+    "examples": [
+        {
+            "name": "Switch simple",
+            "inputs": {
+                "name": "notifications",
+                "label": "Activer les notifications"
+            }
+        },
+        {
+            "name": "Switch avec description",
+            "inputs": {
+                "name": "darkMode",
+                "label": "Mode sombre",
+                "description": "Utiliser un thème sombre pour l'interface",
+                "checked": true
+            }
+        },
+        {
+            "name": "Switch avec labels ON\/OFF",
+            "inputs": {
+                "name": "status",
+                "label": "Statut",
+                "showLabels": true,
+                "variant": "success"
+            }
+        }
+    ]
+}

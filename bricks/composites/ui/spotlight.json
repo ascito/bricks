@@ -1,0 +1,308 @@
+{
+    "id": "spotlight",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Section image + contenu côte à côte. Idéal pour: features, about, témoignages, produits. Options: reverse, backgrounds, image ronde\/carrée, maxWidth.",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "image": {
+                "type": "string",
+                "description": "URL de l'image"
+            },
+            "imageAlt": {
+                "type": "string",
+                "description": "Texte alternatif de l'image",
+                "default": ""
+            },
+            "imageRatio": {
+                "type": "string",
+                "enum": [
+                    "1\/1",
+                    "4\/3",
+                    "16\/9",
+                    "3\/4",
+                    "auto"
+                ],
+                "default": "1\/1",
+                "description": "Ratio de l'image"
+            },
+            "imageRadius": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "full"
+                ],
+                "default": "lg"
+            },
+            "eyebrow": {
+                "type": "string",
+                "description": "Petit texte au-dessus du titre (optionnel)"
+            },
+            "title": {
+                "type": "string",
+                "description": "Titre principal"
+            },
+            "titleLevel": {
+                "type": "integer",
+                "enum": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "default": 2
+            },
+            "content": {
+                "type": "string",
+                "description": "Texte de contenu (HTML autorisé)"
+            },
+            "cta": {
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    },
+                    "variant": {
+                        "type": "string",
+                        "default": "primary"
+                    }
+                },
+                "description": "Bouton call-to-action (optionnel)"
+            },
+            "ctaSecondary": {
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    }
+                },
+                "description": "Lien secondaire (optionnel)"
+            },
+            "reverse": {
+                "type": "boolean",
+                "default": false,
+                "description": "Inverser l'ordre (contenu à gauche, image à droite)"
+            },
+            "align": {
+                "type": "string",
+                "enum": [
+                    "start",
+                    "center",
+                    "end"
+                ],
+                "default": "center",
+                "description": "Alignement vertical"
+            },
+            "gap": {
+                "type": "string",
+                "enum": [
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl"
+                ],
+                "default": "xl"
+            },
+            "imageWidth": {
+                "type": "string",
+                "enum": [
+                    "25%",
+                    "30%",
+                    "40%",
+                    "50%",
+                    "60%"
+                ],
+                "default": "50%",
+                "description": "Largeur de l'image (desktop)"
+            },
+            "background": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "light",
+                    "dark",
+                    "primary",
+                    "gradient"
+                ],
+                "default": "none"
+            },
+            "padding": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl"
+                ],
+                "default": "xl"
+            },
+            "maxWidth": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl",
+                    "full"
+                ],
+                "default": "xl",
+                "description": "Largeur max du contenu (sm=640px, md=768px, lg=1024px, xl=1280px, 2xl=1536px)"
+            },
+            "spacing": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl"
+                ],
+                "default": "none",
+                "description": "Marge verticale (espacement entre sections)"
+            },
+            "className": {
+                "type": "string",
+                "description": "Classes CSS additionnelles"
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": [
+            "image",
+            "title",
+            "content"
+        ]
+    },
+    "tags": [
+        "composite",
+        "layout",
+        "media-object",
+        "feature",
+        "about",
+        "testimonial",
+        "product",
+        "hero",
+        "section",
+        "image-text"
+    ],
+    "examples": [
+        {
+            "name": "Feature highlight",
+            "description": "Mise en avant d'une fonctionnalité avec image et CTA",
+            "inputs": {
+                "image": "\/images\/feature.jpg",
+                "eyebrow": "Nouveau",
+                "title": "Notre mission",
+                "content": "<p>Nous créons des outils qui permettent à l'IA de construire des interfaces.<\/p>",
+                "cta": {
+                    "label": "En savoir plus",
+                    "href": "\/about"
+                },
+                "background": "light",
+                "maxWidth": "xl"
+            }
+        },
+        {
+            "name": "About section",
+            "description": "Section à propos avec image inversée",
+            "inputs": {
+                "image": "\/images\/team.jpg",
+                "eyebrow": "Notre équipe",
+                "title": "Des experts passionnés",
+                "content": "<p>Une équipe de développeurs, designers et product managers.<\/p><p>Nous travaillons ensemble depuis 5 ans.<\/p>",
+                "reverse": true,
+                "background": "none",
+                "imageRadius": "xl",
+                "maxWidth": "xl"
+            }
+        },
+        {
+            "name": "Testimonial",
+            "description": "Témoignage client avec photo ronde et fond sombre",
+            "inputs": {
+                "image": "\/images\/avatar.jpg",
+                "imageRadius": "full",
+                "imageWidth": "25%",
+                "title": "\"Ce produit a transformé notre façon de travailler\"",
+                "content": "<p>Marie Dupont, CEO de TechCorp<\/p>",
+                "background": "dark",
+                "align": "center",
+                "maxWidth": "md"
+            }
+        },
+        {
+            "name": "Product showcase",
+            "description": "Présentation produit avec image large",
+            "inputs": {
+                "image": "\/images\/product.jpg",
+                "imageRatio": "16\/9",
+                "imageWidth": "60%",
+                "eyebrow": "Produit vedette",
+                "title": "Le nouveau Widget Pro",
+                "content": "<p>Performance inégalée, design épuré.<\/p>",
+                "cta": {
+                    "label": "Découvrir",
+                    "href": "\/products\/widget-pro",
+                    "variant": "primary"
+                },
+                "ctaSecondary": {
+                    "label": "Voir les specs",
+                    "href": "\/specs"
+                },
+                "background": "gradient",
+                "maxWidth": "xl"
+            }
+        },
+        {
+            "name": "Process step",
+            "description": "Étape de processus avec illustration",
+            "inputs": {
+                "image": "\/images\/step-illustration.svg",
+                "imageRatio": "1\/1",
+                "imageWidth": "40%",
+                "imageRadius": "none",
+                "eyebrow": "Étape 1",
+                "title": "Créez votre compte",
+                "content": "<p>Inscrivez-vous en 30 secondes avec votre email ou via Google\/GitHub.<\/p>",
+                "cta": {
+                    "label": "Commencer",
+                    "href": "\/register",
+                    "variant": "primary"
+                },
+                "background": "none",
+                "maxWidth": "lg"
+            }
+        },
+        {
+            "name": "Stats highlight",
+            "description": "Chiffres clés avec image de fond",
+            "inputs": {
+                "image": "\/images\/office.jpg",
+                "imageRatio": "4\/3",
+                "imageWidth": "50%",
+                "imageRadius": "xl",
+                "title": "Des résultats concrets",
+                "content": "<p><strong>+150%<\/strong> de productivité<\/p><p><strong>50k+<\/strong> utilisateurs actifs<\/p><p><strong>99.9%<\/strong> de disponibilité<\/p>",
+                "reverse": true,
+                "background": "light",
+                "maxWidth": "xl",
+                "spacing": "lg"
+            }
+        }
+    ]
+}

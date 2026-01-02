@@ -1,0 +1,120 @@
+{
+    "id": "audio",
+    "version": "1.0.0",
+    "category": "ui.primitive",
+    "description": "Lecteur audio avec contrôles personnalisés",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "src": {
+                "type": "string",
+                "description": "URL du fichier audio"
+            },
+            "title": {
+                "type": "string",
+                "description": "Titre du morceau"
+            },
+            "artist": {
+                "type": "string",
+                "description": "Nom de l'artiste"
+            },
+            "cover": {
+                "type": "string",
+                "description": "URL de l'image de couverture"
+            },
+            "autoplay": {
+                "type": "boolean",
+                "default": false,
+                "description": "Lecture automatique"
+            },
+            "loop": {
+                "type": "boolean",
+                "default": false,
+                "description": "Lecture en boucle"
+            },
+            "muted": {
+                "type": "boolean",
+                "default": false,
+                "description": "Démarrer en sourdine"
+            },
+            "preload": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "metadata",
+                    "auto"
+                ],
+                "default": "metadata"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "minimal",
+                    "card"
+                ],
+                "default": "default",
+                "description": "Style du lecteur"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "showWaveform": {
+                "type": "boolean",
+                "default": false,
+                "description": "Afficher une forme d'onde animée"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": [
+            "src"
+        ]
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "audio",
+        "media",
+        "player"
+    ],
+    "examples": [
+        {
+            "name": "Lecteur simple",
+            "inputs": {
+                "src": "\/audio\/sample.mp3",
+                "title": "Ma chanson"
+            }
+        },
+        {
+            "name": "Lecteur avec cover",
+            "inputs": {
+                "src": "\/audio\/podcast.mp3",
+                "title": "Episode 42",
+                "artist": "Mon Podcast",
+                "cover": "\/images\/cover.jpg",
+                "variant": "card"
+            }
+        },
+        {
+            "name": "Lecteur minimal",
+            "inputs": {
+                "src": "\/audio\/notification.mp3",
+                "variant": "minimal",
+                "size": "sm"
+            }
+        }
+    ]
+}

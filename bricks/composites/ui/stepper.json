@@ -1,0 +1,171 @@
+{
+    "id": "stepper",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Indicateur d'étapes pour processus multi-étapes. Idéal pour checkout, inscription, wizard.",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "steps": {
+                "type": "array",
+                "description": "Liste des étapes",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "title": {
+                            "type": "string",
+                            "description": "Titre de l'étape"
+                        },
+                        "description": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "Description optionnelle"
+                        },
+                        "icon": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "Icône optionnelle (HTML SVG)"
+                        }
+                    },
+                    "required": [
+                        "title"
+                    ]
+                },
+                "default": []
+            },
+            "currentStep": {
+                "type": "integer",
+                "description": "Étape actuelle (0-indexed)",
+                "default": 0
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "simple",
+                    "dots",
+                    "arrows"
+                ],
+                "default": "default"
+            },
+            "orientation": {
+                "type": "string",
+                "enum": [
+                    "horizontal",
+                    "vertical"
+                ],
+                "default": "horizontal"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "clickable": {
+                "type": "boolean",
+                "description": "Les étapes sont-elles cliquables",
+                "default": false
+            },
+            "showNumbers": {
+                "type": "boolean",
+                "description": "Afficher les numéros d'étapes",
+                "default": true
+            },
+            "color": {
+                "type": "string",
+                "enum": [
+                    "primary",
+                    "success",
+                    "secondary"
+                ],
+                "default": "primary"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": [
+            "steps"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "stepper",
+        "steps",
+        "wizard",
+        "progress",
+        "checkout",
+        "process"
+    ],
+    "examples": [
+        {
+            "name": "Checkout 3 étapes",
+            "inputs": {
+                "currentStep": 1,
+                "steps": [
+                    {
+                        "title": "Panier",
+                        "description": "Vos articles"
+                    },
+                    {
+                        "title": "Livraison",
+                        "description": "Adresse"
+                    },
+                    {
+                        "title": "Paiement",
+                        "description": "Finaliser"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Inscription",
+            "inputs": {
+                "currentStep": 0,
+                "variant": "simple",
+                "steps": [
+                    {
+                        "title": "Informations"
+                    },
+                    {
+                        "title": "Vérification"
+                    },
+                    {
+                        "title": "Confirmation"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Vertical",
+            "inputs": {
+                "orientation": "vertical",
+                "currentStep": 2,
+                "steps": [
+                    {
+                        "title": "Demande envoyée",
+                        "description": "15 Jan 2026"
+                    },
+                    {
+                        "title": "En cours de traitement",
+                        "description": "16 Jan 2026"
+                    },
+                    {
+                        "title": "Validée",
+                        "description": "17 Jan 2026"
+                    },
+                    {
+                        "title": "Terminée",
+                        "description": "En attente"
+                    }
+                ]
+            }
+        }
+    ]
+}

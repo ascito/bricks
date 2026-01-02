@@ -1,0 +1,102 @@
+{
+    "id": "back-to-top",
+    "version": "1.0.0",
+    "category": "ui.primitive",
+    "description": "Bouton flottant pour remonter en haut de page",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "threshold": {
+                "type": "integer",
+                "default": 300,
+                "description": "Distance de scroll (px) avant d'afficher le bouton"
+            },
+            "position": {
+                "type": "string",
+                "enum": [
+                    "bottom-right",
+                    "bottom-left",
+                    "bottom-center"
+                ],
+                "default": "bottom-right"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "primary",
+                    "secondary",
+                    "dark",
+                    "light"
+                ],
+                "default": "primary"
+            },
+            "smooth": {
+                "type": "boolean",
+                "default": true,
+                "description": "Scroll smooth ou instantané"
+            },
+            "showProgress": {
+                "type": "boolean",
+                "default": false,
+                "description": "Afficher la progression du scroll"
+            },
+            "label": {
+                "type": "string",
+                "description": "Label texte (optionnel, sinon icône seule)"
+            },
+            "offset": {
+                "type": "string",
+                "default": "1.5rem",
+                "description": "Distance des bords"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "description": "ID HTML"
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "back-to-top",
+        "scroll",
+        "navigation",
+        "button",
+        "floating"
+    ],
+    "examples": [
+        {
+            "name": "Back to top simple",
+            "inputs": []
+        },
+        {
+            "name": "Avec progression",
+            "inputs": {
+                "showProgress": true,
+                "variant": "dark"
+            }
+        },
+        {
+            "name": "Position gauche avec label",
+            "inputs": {
+                "position": "bottom-left",
+                "label": "Haut",
+                "variant": "secondary"
+            }
+        }
+    ]
+}

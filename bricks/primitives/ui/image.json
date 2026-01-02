@@ -1,0 +1,126 @@
+{
+    "id": "image",
+    "version": "1.0.0",
+    "category": "ui.primitive",
+    "description": "Image avec support lazy loading et fallback",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "src": {
+                "type": "string",
+                "description": "URL de l'image"
+            },
+            "alt": {
+                "type": "string",
+                "description": "Texte alternatif (accessibilité)",
+                "default": ""
+            },
+            "width": {
+                "type": "string",
+                "nullable": true,
+                "description": "Largeur (px, %, auto)"
+            },
+            "height": {
+                "type": "string",
+                "nullable": true,
+                "description": "Hauteur (px, %, auto)"
+            },
+            "fit": {
+                "type": "string",
+                "enum": [
+                    "contain",
+                    "cover",
+                    "fill",
+                    "none",
+                    "scale-down"
+                ],
+                "default": "cover",
+                "description": "object-fit CSS"
+            },
+            "aspectRatio": {
+                "type": "string",
+                "nullable": true,
+                "description": "Ratio de l'image (ex: 16\/9, 4\/3, 1\/1)"
+            },
+            "rounded": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "full"
+                ],
+                "default": "none",
+                "description": "Alias pour radius"
+            },
+            "radius": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "full"
+                ],
+                "default": "none"
+            },
+            "lazy": {
+                "type": "boolean",
+                "default": true,
+                "description": "Activer le lazy loading"
+            },
+            "fallback": {
+                "type": "string",
+                "nullable": true,
+                "description": "Image de fallback si src échoue"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": [
+            "src"
+        ]
+    },
+    "tags": [
+        "ui",
+        "primitive",
+        "media",
+        "image"
+    ],
+    "examples": [
+        {
+            "name": "Image simple",
+            "inputs": {
+                "src": "\/images\/hero.jpg",
+                "alt": "Image hero"
+            }
+        },
+        {
+            "name": "Avatar rond",
+            "inputs": {
+                "src": "\/images\/avatar.jpg",
+                "alt": "Photo de profil",
+                "width": "64px",
+                "height": "64px",
+                "radius": "full"
+            }
+        },
+        {
+            "name": "Image avec fallback",
+            "inputs": {
+                "src": "\/images\/product.jpg",
+                "alt": "Produit",
+                "fallback": "\/images\/placeholder.jpg"
+            }
+        }
+    ]
+}

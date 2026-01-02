@@ -1,0 +1,110 @@
+{
+    "id": "main",
+    "version": "1.0.0",
+    "category": "layout.composite",
+    "description": "Zone de contenu principal sémantique avec options de mise en page",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "maxWidth": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl",
+                    "prose"
+                ],
+                "default": "none",
+                "description": "Largeur maximale du contenu"
+            },
+            "padding": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl"
+                ],
+                "default": "md"
+            },
+            "paddingY": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                    "2xl"
+                ],
+                "default": "lg"
+            },
+            "background": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "white",
+                    "light",
+                    "gray"
+                ],
+                "default": "none"
+            },
+            "center": {
+                "type": "boolean",
+                "default": true,
+                "description": "Centrer le contenu horizontalement"
+            },
+            "grow": {
+                "type": "boolean",
+                "default": true,
+                "description": "Prendre tout l'espace vertical disponible"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "layout",
+        "composite",
+        "main",
+        "content",
+        "semantic",
+        "page-structure",
+        "accepts:children"
+    ],
+    "examples": [
+        {
+            "name": "Main simple",
+            "inputs": {
+                "padding": "md"
+            }
+        },
+        {
+            "name": "Main avec largeur limitée",
+            "inputs": {
+                "maxWidth": "xl",
+                "center": true,
+                "paddingY": "xl"
+            }
+        },
+        {
+            "name": "Main pour article",
+            "inputs": {
+                "maxWidth": "prose",
+                "paddingY": "2xl",
+                "background": "white"
+            }
+        }
+    ]
+}

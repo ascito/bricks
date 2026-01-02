@@ -1,0 +1,179 @@
+{
+    "id": "login-form",
+    "version": "1.0.0",
+    "category": "form.composite",
+    "description": "Formulaire de connexion avec email, mot de passe, remember me et options sociales",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "action": {
+                "type": "string",
+                "default": "\/login",
+                "description": "URL de soumission du formulaire"
+            },
+            "method": {
+                "type": "string",
+                "enum": [
+                    "POST",
+                    "GET"
+                ],
+                "default": "POST"
+            },
+            "title": {
+                "type": "string",
+                "default": "Connexion"
+            },
+            "subtitle": {
+                "type": "string",
+                "default": "",
+                "description": "Texte sous le titre"
+            },
+            "showTitle": {
+                "type": "boolean",
+                "default": true
+            },
+            "emailLabel": {
+                "type": "string",
+                "default": "Email"
+            },
+            "emailPlaceholder": {
+                "type": "string",
+                "default": "votre@email.com"
+            },
+            "passwordLabel": {
+                "type": "string",
+                "default": "Mot de passe"
+            },
+            "passwordPlaceholder": {
+                "type": "string",
+                "default": "Votre mot de passe"
+            },
+            "submitLabel": {
+                "type": "string",
+                "default": "Se connecter"
+            },
+            "showRememberMe": {
+                "type": "boolean",
+                "default": true
+            },
+            "rememberMeLabel": {
+                "type": "string",
+                "default": "Se souvenir de moi"
+            },
+            "showForgotPassword": {
+                "type": "boolean",
+                "default": true
+            },
+            "forgotPasswordLabel": {
+                "type": "string",
+                "default": "Mot de passe oublié ?"
+            },
+            "forgotPasswordUrl": {
+                "type": "string",
+                "default": "\/forgot-password"
+            },
+            "showRegisterLink": {
+                "type": "boolean",
+                "default": true
+            },
+            "registerLabel": {
+                "type": "string",
+                "default": "Pas encore de compte ?"
+            },
+            "registerLinkLabel": {
+                "type": "string",
+                "default": "S'inscrire"
+            },
+            "registerUrl": {
+                "type": "string",
+                "default": "\/register"
+            },
+            "showSocialLogin": {
+                "type": "boolean",
+                "default": false
+            },
+            "socialProviders": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "default": [
+                    "google",
+                    "github"
+                ]
+            },
+            "socialDividerText": {
+                "type": "string",
+                "default": "ou continuer avec"
+            },
+            "error": {
+                "type": "string",
+                "description": "Message d'erreur global à afficher"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "card",
+                    "minimal"
+                ],
+                "default": "default"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "auth",
+        "login",
+        "form",
+        "authentication"
+    ],
+    "examples": [
+        {
+            "name": "Login simple",
+            "inputs": {
+                "title": "Connexion",
+                "showRememberMe": true,
+                "showForgotPassword": true
+            }
+        },
+        {
+            "name": "Login avec social",
+            "inputs": {
+                "title": "Bienvenue",
+                "subtitle": "Connectez-vous à votre compte",
+                "showSocialLogin": true,
+                "socialProviders": [
+                    "google",
+                    "github",
+                    "facebook"
+                ]
+            }
+        },
+        {
+            "name": "Login minimal",
+            "inputs": {
+                "showTitle": false,
+                "showRememberMe": false,
+                "showForgotPassword": false,
+                "showRegisterLink": false,
+                "variant": "minimal"
+            }
+        }
+    ]
+}

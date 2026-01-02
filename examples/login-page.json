@@ -1,0 +1,108 @@
+{
+  "name": "login-page",
+  "version": "1.0.0",
+  "description": "Authentication login page example",
+  "bricks": [
+    {
+      "brick": "seo",
+      "inputs": {
+        "title": "Login | My Site",
+        "description": "Sign in to your account."
+      }
+    },
+    {
+      "brick": "page-layout",
+      "inputs": {
+        "variant": "centered"
+      },
+      "children": [
+        {
+          "brick": "card",
+          "inputs": {
+            "variant": "elevated",
+            "padding": "lg",
+            "maxWidth": "400px"
+          },
+          "children": [
+            {
+              "brick": "stack",
+              "inputs": {
+                "gap": "lg",
+                "align": "center"
+              },
+              "children": [
+                {
+                  "brick": "avatar",
+                  "inputs": {
+                    "initials": "MS",
+                    "size": "xl",
+                    "color": "primary"
+                  }
+                },
+                {
+                  "brick": "heading",
+                  "inputs": {
+                    "content": "Welcome back",
+                    "level": 1,
+                    "size": "xl",
+                    "align": "center"
+                  }
+                },
+                {
+                  "brick": "text",
+                  "inputs": {
+                    "content": "Sign in to continue to your account",
+                    "color": "muted",
+                    "align": "center"
+                  }
+                }
+              ]
+            },
+            {
+              "brick": "login-form",
+              "inputs": {
+                "action": "/api/login",
+                "method": "POST",
+                "showRememberMe": true,
+                "showForgotPassword": true,
+                "forgotPasswordUrl": "/forgot-password",
+                "submitLabel": "Sign In"
+              }
+            },
+            {
+              "brick": "divider",
+              "inputs": {
+                "text": "or continue with"
+              }
+            },
+            {
+              "brick": "social-login",
+              "inputs": {
+                "providers": ["google", "github"],
+                "variant": "outline"
+              }
+            },
+            {
+              "brick": "text",
+              "inputs": {
+                "tag": "p",
+                "align": "center",
+                "size": "sm",
+                "color": "muted",
+                "content": "Don't have an account?"
+              }
+            },
+            {
+              "brick": "link",
+              "inputs": {
+                "href": "/register",
+                "label": "Create an account",
+                "variant": "primary"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

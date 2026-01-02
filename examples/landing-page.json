@@ -1,0 +1,137 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "Marketing landing page example",
+  "bricks": [
+    {
+      "brick": "seo",
+      "inputs": {
+        "title": "Welcome | My Site",
+        "description": "Discover our innovative services.",
+        "canonical": "https://example.com/"
+      }
+    },
+    {
+      "brick": "header",
+      "inputs": {
+        "logo": {
+          "src": "/images/logo.svg",
+          "alt": "My Site"
+        },
+        "navigation": [
+          { "label": "Home", "href": "/" },
+          { "label": "Services", "href": "/services" },
+          { "label": "About", "href": "/about" },
+          { "label": "Contact", "href": "/contact" }
+        ],
+        "cta": {
+          "label": "Get Started",
+          "href": "/signup"
+        }
+      }
+    },
+    {
+      "brick": "hero",
+      "inputs": {
+        "badge": "New",
+        "title": "Simplify your workflow",
+        "subtitle": "An all-in-one solution for managing your projects efficiently.",
+        "image": "/images/hero.jpg",
+        "cta": {
+          "label": "Free Trial",
+          "href": "/signup"
+        },
+        "secondaryCta": {
+          "label": "Watch Demo",
+          "href": "/demo"
+        }
+      }
+    },
+    {
+      "brick": "section-header",
+      "inputs": {
+        "eyebrow": "Our Services",
+        "title": "What we offer",
+        "description": "Solutions tailored to your needs."
+      }
+    },
+    {
+      "brick": "card",
+      "repeat": "{{ data.services }}",
+      "as": "service",
+      "inputs": {
+        "title": "{{ service.name }}",
+        "description": "{{ service.description }}",
+        "icon": "{{ service.icon }}"
+      }
+    },
+    {
+      "brick": "spotlight",
+      "inputs": {
+        "eyebrow": "Why us?",
+        "title": "A passionate team",
+        "description": "Since 2015, we've been helping businesses with their digital transformation. Our human approach and technical expertise make the difference.",
+        "image": "/images/team.jpg",
+        "imageAlt": "Our team at work",
+        "cta": {
+          "label": "Our Story",
+          "href": "/about"
+        }
+      }
+    },
+    {
+      "brick": "spotlight",
+      "inputs": {
+        "reverse": true,
+        "eyebrow": "Testimonial",
+        "title": "They trust us",
+        "description": "\"Thanks to this solution, we reduced our management time by 40%. The team is responsive and attentive.\"",
+        "image": "/images/client.jpg",
+        "imageAlt": "Marie D., Director"
+      }
+    },
+    {
+      "brick": "stats",
+      "inputs": {
+        "items": [
+          { "value": "500+", "label": "Clients" },
+          { "value": "98%", "label": "Satisfaction" },
+          { "value": "24/7", "label": "Support" },
+          { "value": "10+", "label": "Years" }
+        ]
+      }
+    },
+    {
+      "brick": "footer",
+      "inputs": {
+        "logo": "/images/logo.svg",
+        "columns": [
+          {
+            "title": "Product",
+            "links": [
+              { "label": "Features", "href": "/features" },
+              { "label": "Pricing", "href": "/pricing" },
+              { "label": "Demo", "href": "/demo" }
+            ]
+          },
+          {
+            "title": "Company",
+            "links": [
+              { "label": "About", "href": "/about" },
+              { "label": "Blog", "href": "/blog" },
+              { "label": "Careers", "href": "/careers" }
+            ]
+          },
+          {
+            "title": "Support",
+            "links": [
+              { "label": "Help", "href": "/help" },
+              { "label": "Contact", "href": "/contact" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 My Site. All rights reserved."
+      }
+    }
+  ]
+}

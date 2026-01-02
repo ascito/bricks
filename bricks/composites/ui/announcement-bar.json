@@ -1,0 +1,158 @@
+{
+    "id": "announcement-bar",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Bandeau d'annonce sticky pour promos, news, alertes",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string",
+                "description": "Message principal (HTML supporté)"
+            },
+            "link": {
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    }
+                }
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "primary",
+                    "success",
+                    "warning",
+                    "danger",
+                    "dark",
+                    "gradient"
+                ],
+                "default": "primary"
+            },
+            "position": {
+                "type": "string",
+                "enum": [
+                    "top",
+                    "bottom"
+                ],
+                "default": "top"
+            },
+            "sticky": {
+                "type": "boolean",
+                "default": true
+            },
+            "dismissible": {
+                "type": "boolean",
+                "default": true
+            },
+            "icon": {
+                "type": "string",
+                "enum": [
+                    "none",
+                    "megaphone",
+                    "sparkles",
+                    "gift",
+                    "bell",
+                    "info",
+                    "warning",
+                    "tag"
+                ],
+                "default": "none"
+            },
+            "countdown": {
+                "type": "object",
+                "properties": {
+                    "endDate": {
+                        "type": "string",
+                        "description": "Date de fin ISO"
+                    },
+                    "label": {
+                        "type": "string",
+                        "default": "Plus que"
+                    }
+                },
+                "description": "Countdown optionnel"
+            },
+            "storageKey": {
+                "type": "string",
+                "default": "announcement_dismissed",
+                "description": "Clé localStorage pour mémoriser le dismiss"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "default": "announcement-bar"
+            }
+        },
+        "required": [
+            "message"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "announcement",
+        "banner",
+        "promo",
+        "sticky",
+        "notification"
+    ],
+    "examples": [
+        {
+            "name": "Promo simple",
+            "inputs": {
+                "message": "🎉 Soldes d'hiver ! -30% sur tout le site",
+                "link": {
+                    "label": "J'en profite →",
+                    "href": "\/promo"
+                },
+                "variant": "primary"
+            }
+        },
+        {
+            "name": "Avec countdown",
+            "inputs": {
+                "message": "Offre spéciale Black Friday",
+                "icon": "tag",
+                "variant": "dark",
+                "countdown": {
+                    "endDate": "2026-12-31T23:59:59",
+                    "label": "Se termine dans"
+                },
+                "link": {
+                    "label": "Voir les offres",
+                    "href": "\/black-friday"
+                }
+            }
+        },
+        {
+            "name": "Annonce info",
+            "inputs": {
+                "message": "Nouvelle version disponible ! Découvrez les nouveautés.",
+                "icon": "sparkles",
+                "variant": "gradient",
+                "link": {
+                    "label": "En savoir plus",
+                    "href": "\/changelog"
+                }
+            }
+        },
+        {
+            "name": "Warning maintenance",
+            "inputs": {
+                "message": "Maintenance prévue ce soir de 22h à 23h",
+                "icon": "warning",
+                "variant": "warning",
+                "dismissible": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,225 @@
+{
+    "id": "pricing-card",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Carte de tarification avec prix, features et CTA. Idéal pour pages pricing, formations, abonnements.",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "description": "Nom du plan\/formation",
+                "default": "Standard"
+            },
+            "subtitle": {
+                "type": "string",
+                "description": "Sous-titre ou description courte",
+                "nullable": true
+            },
+            "price": {
+                "type": "string",
+                "description": "Prix affiché (ex: \"49\", \"199.99\", \"Gratuit\")",
+                "default": "0"
+            },
+            "currency": {
+                "type": "string",
+                "description": "Symbole de devise",
+                "default": "€"
+            },
+            "period": {
+                "type": "string",
+                "description": "Période de facturation (ex: \"\/mois\", \"\/an\", \"\/personne\")",
+                "nullable": true
+            },
+            "features": {
+                "type": "array",
+                "description": "Liste des fonctionnalités incluses",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "text": {
+                            "type": "string"
+                        },
+                        "included": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                },
+                "default": []
+            },
+            "cta": {
+                "type": "object",
+                "description": "Bouton d'action",
+                "properties": {
+                    "label": {
+                        "type": "string",
+                        "default": "Choisir"
+                    },
+                    "href": {
+                        "type": "string",
+                        "default": "#"
+                    },
+                    "variant": {
+                        "type": "string",
+                        "enum": [
+                            "primary",
+                            "secondary",
+                            "outline"
+                        ],
+                        "default": "primary"
+                    }
+                },
+                "default": {
+                    "label": "Choisir",
+                    "href": "#",
+                    "variant": "primary"
+                }
+            },
+            "popular": {
+                "type": "boolean",
+                "description": "Mettre en avant comme \"Populaire\" ou \"Recommandé\"",
+                "default": false
+            },
+            "popularLabel": {
+                "type": "string",
+                "description": "Texte du badge populaire",
+                "default": "Populaire"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "outlined",
+                    "elevated",
+                    "filled"
+                ],
+                "default": "elevated"
+            },
+            "color": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "primary",
+                    "secondary",
+                    "success"
+                ],
+                "default": "default",
+                "description": "Couleur d'accent pour le plan populaire"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": [
+            "title",
+            "price"
+        ]
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "pricing",
+        "card",
+        "subscription",
+        "plan",
+        "formation",
+        "tarif"
+    ],
+    "examples": [
+        {
+            "name": "Plan basique",
+            "inputs": {
+                "title": "Starter",
+                "price": "0",
+                "period": "\/mois",
+                "features": [
+                    {
+                        "text": "1 projet",
+                        "included": true
+                    },
+                    {
+                        "text": "Support email",
+                        "included": true
+                    },
+                    {
+                        "text": "API access",
+                        "included": false
+                    }
+                ],
+                "cta": {
+                    "label": "Commencer",
+                    "href": "\/signup"
+                }
+            }
+        },
+        {
+            "name": "Plan populaire",
+            "inputs": {
+                "title": "Pro",
+                "subtitle": "Pour les équipes",
+                "price": "49",
+                "period": "\/mois",
+                "popular": true,
+                "popularLabel": "Recommandé",
+                "color": "primary",
+                "features": [
+                    {
+                        "text": "Projets illimités",
+                        "included": true
+                    },
+                    {
+                        "text": "Support prioritaire",
+                        "included": true
+                    },
+                    {
+                        "text": "API access",
+                        "included": true
+                    },
+                    {
+                        "text": "Analytics avancés",
+                        "included": true
+                    }
+                ],
+                "cta": {
+                    "label": "Essai gratuit",
+                    "href": "\/trial",
+                    "variant": "primary"
+                }
+            }
+        },
+        {
+            "name": "Formation",
+            "inputs": {
+                "title": "Formation Laravel",
+                "subtitle": "3 jours - Présentiel",
+                "price": "1490",
+                "currency": "€",
+                "period": "\/personne",
+                "features": [
+                    {
+                        "text": "Support de cours inclus",
+                        "included": true
+                    },
+                    {
+                        "text": "Exercices pratiques",
+                        "included": true
+                    },
+                    {
+                        "text": "Certification",
+                        "included": true
+                    },
+                    {
+                        "text": "Déjeuners inclus",
+                        "included": true
+                    }
+                ],
+                "cta": {
+                    "label": "Réserver",
+                    "href": "\/booking\/laravel"
+                }
+            }
+        }
+    ]
+}

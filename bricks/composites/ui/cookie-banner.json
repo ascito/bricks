@@ -1,0 +1,177 @@
+{
+    "id": "cookie-banner",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Bannière de consentement cookies conforme RGPD",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "default": "Nous utilisons des cookies"
+            },
+            "message": {
+                "type": "string",
+                "default": "Ce site utilise des cookies pour améliorer votre expérience. En continuant à naviguer, vous acceptez notre utilisation des cookies."
+            },
+            "privacyLink": {
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string",
+                        "default": "Politique de confidentialité"
+                    },
+                    "href": {
+                        "type": "string",
+                        "default": "\/privacy"
+                    }
+                }
+            },
+            "buttons": {
+                "type": "object",
+                "properties": {
+                    "accept": {
+                        "type": "string",
+                        "default": "Accepter tout"
+                    },
+                    "reject": {
+                        "type": "string",
+                        "default": "Refuser"
+                    },
+                    "customize": {
+                        "type": "string",
+                        "default": "Personnaliser"
+                    }
+                }
+            },
+            "categories": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "required": {
+                            "type": "boolean",
+                            "default": false
+                        },
+                        "default": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                },
+                "default": [
+                    {
+                        "id": "necessary",
+                        "name": "Nécessaires",
+                        "description": "Cookies essentiels au fonctionnement du site",
+                        "required": true,
+                        "default": true
+                    },
+                    {
+                        "id": "analytics",
+                        "name": "Analytiques",
+                        "description": "Nous aident à comprendre comment vous utilisez le site",
+                        "required": false,
+                        "default": false
+                    },
+                    {
+                        "id": "marketing",
+                        "name": "Marketing",
+                        "description": "Utilisés pour vous proposer des publicités pertinentes",
+                        "required": false,
+                        "default": false
+                    }
+                ]
+            },
+            "position": {
+                "type": "string",
+                "enum": [
+                    "bottom",
+                    "top",
+                    "bottom-left",
+                    "bottom-right",
+                    "center"
+                ],
+                "default": "bottom"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "bar",
+                    "popup",
+                    "modal"
+                ],
+                "default": "bar"
+            },
+            "theme": {
+                "type": "string",
+                "enum": [
+                    "light",
+                    "dark"
+                ],
+                "default": "light"
+            },
+            "cookieName": {
+                "type": "string",
+                "default": "cookie_consent"
+            },
+            "cookieExpiry": {
+                "type": "integer",
+                "default": 365,
+                "description": "Durée en jours"
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            },
+            "id": {
+                "type": "string",
+                "default": "cookie-banner"
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "cookie",
+        "consent",
+        "gdpr",
+        "rgpd",
+        "privacy",
+        "banner"
+    ],
+    "examples": [
+        {
+            "name": "Bannière simple",
+            "inputs": {
+                "position": "bottom",
+                "variant": "bar"
+            }
+        },
+        {
+            "name": "Popup coin",
+            "inputs": {
+                "position": "bottom-right",
+                "variant": "popup",
+                "theme": "dark"
+            }
+        },
+        {
+            "name": "Modal centré",
+            "inputs": {
+                "variant": "modal",
+                "position": "center"
+            }
+        }
+    ]
+}

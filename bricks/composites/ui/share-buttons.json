@@ -1,0 +1,118 @@
+{
+    "id": "share-buttons",
+    "version": "1.0.0",
+    "category": "ui.composite",
+    "description": "Boutons de partage sur les réseaux sociaux",
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "url": {
+                "type": "string",
+                "description": "URL à partager (défaut: URL courante)",
+                "nullable": true
+            },
+            "title": {
+                "type": "string",
+                "description": "Titre du contenu à partager",
+                "nullable": true
+            },
+            "description": {
+                "type": "string",
+                "description": "Description pour certains réseaux",
+                "nullable": true
+            },
+            "platforms": {
+                "type": "array",
+                "default": [
+                    "twitter",
+                    "facebook",
+                    "linkedin",
+                    "copy"
+                ],
+                "description": "Plateformes à afficher"
+            },
+            "variant": {
+                "type": "string",
+                "enum": [
+                    "default",
+                    "rounded",
+                    "minimal",
+                    "colored"
+                ],
+                "default": "default"
+            },
+            "size": {
+                "type": "string",
+                "enum": [
+                    "sm",
+                    "md",
+                    "lg"
+                ],
+                "default": "md"
+            },
+            "showLabels": {
+                "type": "boolean",
+                "default": false,
+                "description": "Afficher les noms des réseaux"
+            },
+            "showCount": {
+                "type": "boolean",
+                "default": false,
+                "description": "Afficher le nombre de partages (si disponible)"
+            },
+            "direction": {
+                "type": "string",
+                "enum": [
+                    "horizontal",
+                    "vertical"
+                ],
+                "default": "horizontal"
+            },
+            "label": {
+                "type": "string",
+                "description": "Label avant les boutons",
+                "nullable": true
+            },
+            "className": {
+                "type": "string",
+                "default": ""
+            }
+        },
+        "required": []
+    },
+    "tags": [
+        "ui",
+        "composite",
+        "blog",
+        "social",
+        "share"
+    ],
+    "examples": [
+        {
+            "name": "Partage simple",
+            "inputs": {
+                "url": "https:\/\/example.com\/article",
+                "title": "Mon article"
+            }
+        },
+        {
+            "name": "Avec labels",
+            "inputs": {
+                "platforms": [
+                    "twitter",
+                    "facebook",
+                    "linkedin"
+                ],
+                "showLabels": true,
+                "variant": "colored"
+            }
+        },
+        {
+            "name": "Style minimal",
+            "inputs": {
+                "variant": "minimal",
+                "label": "Partager :"
+            }
+        }
+    ]
+}
