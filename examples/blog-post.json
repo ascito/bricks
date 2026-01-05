@@ -1,0 +1,512 @@
+{
+  "id": "formapro-blog-article",
+  "name": "FormaPro - Article Blog",
+  "description": "Page détail d'un article avec table des matières et partage",
+  "bricks": [
+    {
+      "id": "seo",
+      "brick": "seo",
+      "inputs": {
+        "title": "Les nouveautés de Laravel 11 - Blog FormaPro",
+        "description": "Découvrez les nouvelles fonctionnalités de Laravel 11 : structure simplifiée, Health checks natifs, nouveau directory par défaut.",
+        "canonical": "https://formapro.dev/blog/nouveautes-laravel-11",
+        "lang": "fr",
+        "og": {
+          "type": "article",
+          "siteName": "FormaPro Blog",
+          "locale": "fr_FR"
+        }
+      }
+    },
+    {
+      "id": "page",
+      "brick": "stack",
+      "inputs": {"gap": "none"},
+      "slots": {"children": ["seo", "navbar", "article-wrapper", "related-section", "footer"]}
+    },
+
+    {
+      "id": "navbar",
+      "brick": "navbar",
+      "inputs": {
+        "logo": {"text": "FormaPro", "href": "/", "icon": "book-open"},
+        "items": [
+          {"label": "Formations", "href": "/formations"},
+          {"label": "Calendrier", "href": "/calendrier"},
+          {"label": "Entreprises", "href": "/entreprises"},
+          {"label": "Blog", "href": "/blog", "active": true}
+        ],
+        "actions": [
+          {"label": "Connexion", "href": "/login", "variant": "ghost"},
+          {"label": "Mon compte", "href": "/compte", "variant": "primary"}
+        ],
+        "sticky": "top"
+      }
+    },
+
+    {
+      "id": "article-wrapper",
+      "brick": "container",
+      "inputs": {"maxWidth": "xl", "paddingY": "2xl"},
+      "slots": {"children": ["article-layout"]}
+    },
+
+    {
+      "id": "article-layout",
+      "brick": "article",
+      "inputs": {
+        "maxWidth": "md",
+        "prose": true,
+        "showDividers": true,
+        "spacing": "lg"
+      },
+      "slots": {
+        "header": ["article-header"],
+        "content": ["article-body"],
+        "footer": ["article-footer"],
+        "sidebarLeft": ["article-sidebar"],
+        "sidebarRight": ["article-sidebar-right"]
+      }
+    },
+
+    {
+      "id": "article-header",
+      "brick": "stack",
+      "inputs": {"gap": "lg"},
+      "slots": {"children": ["article-breadcrumb", "article-meta-top", "article-title", "article-excerpt", "article-author-line", "article-cover"]}
+    },
+    {
+      "id": "article-breadcrumb",
+      "brick": "breadcrumb",
+      "inputs": {
+        "items": [
+          {"label": "Accueil", "href": "/"},
+          {"label": "Blog", "href": "/blog"},
+          {"label": "Laravel", "href": "/blog/category/laravel"},
+          {"label": "Les nouveautés de Laravel 11"}
+        ],
+        "separator": "chevron"
+      }
+    },
+    {
+      "id": "article-meta-top",
+      "brick": "stack",
+      "inputs": {"direction": "horizontal", "gap": "md", "align": "center"},
+      "slots": {"children": ["article-category", "article-reading-time"]}
+    },
+    {
+      "id": "article-category",
+      "brick": "badge",
+      "inputs": {"content": "Laravel", "variant": "primary"}
+    },
+    {
+      "id": "article-reading-time",
+      "brick": "reading-time",
+      "inputs": {"minutes": 8, "variant": "muted"}
+    },
+    {
+      "id": "article-title",
+      "brick": "heading",
+      "inputs": {"level": 1, "content": "Les nouveautés de Laravel 11", "size": "3xl"}
+    },
+    {
+      "id": "article-excerpt",
+      "brick": "text",
+      "inputs": {
+        "content": "Laravel 11 marque une évolution majeure du framework avec une structure simplifiée, des Health checks natifs et de nombreuses améliorations de la Developer Experience.",
+        "size": "xl",
+        "color": "muted"
+      }
+    },
+    {
+      "id": "article-cover",
+      "brick": "image",
+      "inputs": {
+        "src": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80",
+        "alt": "Laravel 11 Code",
+        "aspectRatio": "21/9",
+        "radius": "lg"
+      }
+    },
+    {
+      "id": "article-author-line",
+      "brick": "author-card",
+      "inputs": {
+        "name": "Marie Dupont",
+        "avatar": "https://i.pravatar.cc/100?u=marie",
+        "role": "Lead Developer Laravel",
+        "variant": "inline",
+        "showDate": true,
+        "date": "15 janvier 2025"
+      }
+    },
+
+    {
+      "id": "article-body",
+      "brick": "stack",
+      "inputs": {"gap": "lg", "className": "article-content"},
+      "slots": {"children": ["content-intro", "content-h2-1", "content-p1", "content-h3-1", "content-p2", "content-code-1", "content-h3-2", "content-p3", "content-h2-2", "content-p4", "content-list-1", "content-h2-3", "content-p5", "content-blockquote", "content-h2-4", "content-p6"]}
+    },
+    {
+      "id": "content-intro",
+      "brick": "text",
+      "inputs": {"content": "Après des mois d'attente, Laravel 11 est enfin disponible ! Cette nouvelle version majeure apporte son lot de changements significatifs, avec un focus particulier sur la simplification de la structure du framework et l'amélioration de la Developer Experience."}
+    },
+
+    {
+      "id": "content-h2-1",
+      "brick": "heading",
+      "inputs": {"level": 2, "content": "Une structure de projet simplifiée", "id": "structure"}
+    },
+    {
+      "id": "content-p1",
+      "brick": "text",
+      "inputs": {"content": "Le changement le plus visible de Laravel 11 est la nouvelle structure de projet par défaut. Fini le dossier app/Http/Middleware rempli de fichiers que vous ne modifiez jamais. La nouvelle structure est épurée et se concentre sur l'essentiel."}
+    },
+    {
+      "id": "content-h3-1",
+      "brick": "heading",
+      "inputs": {"level": 3, "content": "Le nouveau fichier bootstrap/app.php", "id": "bootstrap"}
+    },
+    {
+      "id": "content-p2",
+      "brick": "text",
+      "inputs": {"content": "Toute la configuration qui était dispersée dans plusieurs fichiers est maintenant centralisée dans bootstrap/app.php. C'est ici que vous définirez vos middlewares, exception handlers et service providers."}
+    },
+    {
+      "id": "content-code-1",
+      "brick": "rich-text",
+      "inputs": {"content": "<pre><code>return Application::configure()\n    ->withRouting(\n        web: __DIR__.'/../routes/web.php',\n        api: __DIR__.'/../routes/api.php',\n    )\n    ->withMiddleware(function (Middleware $middleware) {\n        $middleware->web(append: [MyCustomMiddleware::class]);\n    })\n    ->create();</code></pre>"}
+    },
+    {
+      "id": "content-h3-2",
+      "brick": "heading",
+      "inputs": {"level": 3, "content": "Moins de fichiers, plus de clarté", "id": "moins-fichiers"}
+    },
+    {
+      "id": "content-p3",
+      "brick": "text",
+      "inputs": {"content": "Les dossiers app/Console, app/Exceptions et app/Http/Middleware sont désormais optionnels. Vous ne les créez que si vous en avez besoin. Le résultat ? Un projet plus léger et plus facile à appréhender pour les nouveaux développeurs."}
+    },
+
+    {
+      "id": "content-h2-2",
+      "brick": "heading",
+      "inputs": {"level": 2, "content": "Health Checks natifs", "id": "health-checks"}
+    },
+    {
+      "id": "content-p4",
+      "brick": "text",
+      "inputs": {"content": "Laravel 11 introduit un système de Health Checks intégré. Plus besoin de packages tiers pour monitorer la santé de votre application. Les checks disponibles incluent :"}
+    },
+    {
+      "id": "content-list-1",
+      "brick": "rich-text",
+      "inputs": {"content": "<ul><li>Vérification de la connexion à la base de données</li><li>Vérification de l'espace disque disponible</li><li>Vérification de la connexion Redis/Cache</li><li>Checks personnalisés via une interface simple</li></ul>"}
+    },
+
+    {
+      "id": "content-h2-3",
+      "brick": "heading",
+      "inputs": {"level": 2, "content": "Améliorations de Eloquent", "id": "eloquent"}
+    },
+    {
+      "id": "content-p5",
+      "brick": "text",
+      "inputs": {"content": "Eloquent continue d'évoluer avec de nouvelles méthodes et optimisations. La méthode whereAny() permet maintenant de rechercher dans plusieurs colonnes avec une syntaxe élégante."}
+    },
+    {
+      "id": "content-blockquote",
+      "brick": "rich-text",
+      "inputs": {"content": "<blockquote>Laravel 11 représente l'aboutissement de notre vision : un framework puissant mais simple à utiliser. Chaque ligne de code supprimée est une victoire pour la Developer Experience.</blockquote>"}
+    },
+
+    {
+      "id": "content-h2-4",
+      "brick": "heading",
+      "inputs": {"level": 2, "content": "Conclusion", "id": "conclusion"}
+    },
+    {
+      "id": "content-p6",
+      "brick": "text",
+      "inputs": {"content": "Laravel 11 est une mise à jour majeure qui simplifie significativement le développement d'applications web. Que vous soyez nouveau sur Laravel ou utilisateur expérimenté, cette version vous fera gagner du temps et améliorera votre productivité. N'hésitez pas à consulter notre formation Laravel 11 pour maîtriser toutes ces nouveautés !"}
+    },
+
+    {
+      "id": "article-footer",
+      "brick": "stack",
+      "inputs": {"gap": "xl"},
+      "slots": {"children": ["article-tags", "article-share", "article-author-bio"]}
+    },
+    {
+      "id": "article-tags",
+      "brick": "stack",
+      "inputs": {"direction": "horizontal", "gap": "sm", "wrap": true, "align": "center"},
+      "slots": {"children": ["tags-label", "tag-1", "tag-2", "tag-3", "tag-4"]}
+    },
+    {
+      "id": "tags-label",
+      "brick": "text",
+      "inputs": {"content": "Tags :", "weight": "semibold", "size": "sm"}
+    },
+    {
+      "id": "tag-1",
+      "brick": "badge",
+      "inputs": {"content": "Laravel", "variant": "default", "size": "sm"}
+    },
+    {
+      "id": "tag-2",
+      "brick": "badge",
+      "inputs": {"content": "PHP", "variant": "default", "size": "sm"}
+    },
+    {
+      "id": "tag-3",
+      "brick": "badge",
+      "inputs": {"content": "Framework", "variant": "default", "size": "sm"}
+    },
+    {
+      "id": "tag-4",
+      "brick": "badge",
+      "inputs": {"content": "Tutoriel", "variant": "default", "size": "sm"}
+    },
+    {
+      "id": "article-share",
+      "brick": "share-buttons",
+      "inputs": {
+        "url": "https://formapro.dev/blog/nouveautes-laravel-11",
+        "title": "Les nouveautés de Laravel 11",
+        "platforms": ["twitter", "facebook", "linkedin", "copy"],
+        "showLabels": true,
+        "variant": "default",
+        "label": "Partager cet article :"
+      }
+    },
+    {
+      "id": "article-author-bio",
+      "brick": "author-card",
+      "inputs": {
+        "name": "Marie Dupont",
+        "avatar": "https://i.pravatar.cc/100?u=marie",
+        "role": "Lead Developer Laravel",
+        "bio": "Formatrice Laravel depuis 5 ans chez FormaPro. Passionnée par le clean code et les bonnes pratiques. Retrouvez-moi sur nos formations Laravel et PHP.",
+        "variant": "card",
+        "profileUrl": "/formateurs/marie-dupont",
+        "social": [
+          {"platform": "twitter", "url": "https://twitter.com/mariedupont"},
+          {"platform": "github", "url": "https://github.com/mariedupont"}
+        ]
+      }
+    },
+
+    {
+      "id": "article-sidebar",
+      "brick": "stack",
+      "inputs": {"gap": "lg"},
+      "slots": {"children": ["sidebar-toc"]}
+    },
+    {
+      "id": "sidebar-toc",
+      "brick": "table-of-contents",
+      "inputs": {
+        "title": "Dans cet article",
+        "sticky": true,
+        "variant": "card",
+        "highlightCurrent": true,
+        "items": [
+          {"id": "structure", "text": "Une structure simplifiée", "level": 2},
+          {"id": "bootstrap", "text": "Le nouveau bootstrap/app.php", "level": 3},
+          {"id": "moins-fichiers", "text": "Moins de fichiers", "level": 3},
+          {"id": "health-checks", "text": "Health Checks natifs", "level": 2},
+          {"id": "eloquent", "text": "Améliorations de Eloquent", "level": 2},
+          {"id": "conclusion", "text": "Conclusion", "level": 2}
+        ]
+      }
+    },
+    {
+      "id": "sidebar-cta",
+      "brick": "card",
+      "inputs": {"variant": "filled", "padding": "md", "radius": "lg"},
+      "slots": {"body": ["sidebar-cta-content"]}
+    },
+    {
+      "id": "sidebar-cta-content",
+      "brick": "stack",
+      "inputs": {"gap": "md", "align": "center"},
+      "slots": {"children": ["sidebar-cta-title", "sidebar-cta-text", "sidebar-cta-btn"]}
+    },
+    {
+      "id": "sidebar-cta-title",
+      "brick": "heading",
+      "inputs": {"level": 4, "content": "Formation Laravel 11", "align": "center"}
+    },
+    {
+      "id": "sidebar-cta-text",
+      "brick": "text",
+      "inputs": {"content": "Maîtrisez toutes les nouveautés avec notre formation complète de 3 jours.", "align": "center", "size": "sm"}
+    },
+    {
+      "id": "sidebar-cta-btn",
+      "brick": "button",
+      "inputs": {"label": "Voir la formation", "variant": "primary", "size": "sm", "fullWidth": true}
+    },
+
+    {
+      "id": "article-sidebar-right",
+      "brick": "stack",
+      "inputs": {"gap": "lg"},
+      "slots": {"children": ["sidebar-share", "sidebar-cta"]}
+    },
+    {
+      "id": "sidebar-share",
+      "brick": "share-buttons",
+      "inputs": {
+        "label": "Partager",
+        "url": "https://formapro.dev/blog/nouveautes-laravel-11",
+        "title": "Les nouveautés de Laravel 11",
+        "variant": "rounded",
+        "platforms": ["twitter", "linkedin", "facebook", "copy"]
+      }
+    },
+    {
+      "id": "related-section",
+      "brick": "container",
+      "inputs": {"maxWidth": "xl", "paddingY": "2xl", "background": "light"},
+      "slots": {"children": ["related-content"]}
+    },
+    {
+      "id": "related-content",
+      "brick": "stack",
+      "inputs": {"gap": "xl"},
+      "slots": {"children": ["related-title", "related-grid"]}
+    },
+    {
+      "id": "related-title",
+      "brick": "heading",
+      "inputs": {"level": 2, "content": "Articles similaires", "size": "xl"}
+    },
+    {
+      "id": "related-grid",
+      "brick": "grid",
+      "inputs": {"columns": 1, "columnsMd": 3, "gap": "lg"},
+      "slots": {"children": ["related-1", "related-2", "related-3"]}
+    },
+
+    {
+      "id": "related-1",
+      "brick": "card",
+      "inputs": {"variant": "elevated", "hoverable": true, "padding": "none", "radius": "lg"},
+      "slots": {"media": ["related-1-img"], "body": ["related-1-body"]}
+    },
+    {
+      "id": "related-1-img",
+      "brick": "image",
+      "inputs": {"src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80", "alt": "Pest PHP", "aspectRatio": "16/9"}
+    },
+    {
+      "id": "related-1-body",
+      "brick": "stack",
+      "inputs": {"gap": "xs", "className": "brk-p-md"},
+      "slots": {"children": ["related-1-title", "related-1-meta"]}
+    },
+    {
+      "id": "related-1-title",
+      "brick": "heading",
+      "inputs": {"level": 4, "content": "Tester son API Laravel avec Pest"}
+    },
+    {
+      "id": "related-1-meta",
+      "brick": "reading-time",
+      "inputs": {"minutes": 10, "size": "sm", "variant": "muted"}
+    },
+
+    {
+      "id": "related-2",
+      "brick": "card",
+      "inputs": {"variant": "elevated", "hoverable": true, "padding": "none", "radius": "lg"},
+      "slots": {"media": ["related-2-img"], "body": ["related-2-body"]}
+    },
+    {
+      "id": "related-2-img",
+      "brick": "image",
+      "inputs": {"src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80", "alt": "Livewire", "aspectRatio": "16/9"}
+    },
+    {
+      "id": "related-2-body",
+      "brick": "stack",
+      "inputs": {"gap": "xs", "className": "brk-p-md"},
+      "slots": {"children": ["related-2-title", "related-2-meta"]}
+    },
+    {
+      "id": "related-2-title",
+      "brick": "heading",
+      "inputs": {"level": 4, "content": "Livewire 3 : le guide complet"}
+    },
+    {
+      "id": "related-2-meta",
+      "brick": "reading-time",
+      "inputs": {"minutes": 15, "size": "sm", "variant": "muted"}
+    },
+
+    {
+      "id": "related-3",
+      "brick": "card",
+      "inputs": {"variant": "elevated", "hoverable": true, "padding": "none", "radius": "lg"},
+      "slots": {"media": ["related-3-img"], "body": ["related-3-body"]}
+    },
+    {
+      "id": "related-3-img",
+      "brick": "image",
+      "inputs": {"src": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&q=80", "alt": "API Design", "aspectRatio": "16/9"}
+    },
+    {
+      "id": "related-3-body",
+      "brick": "stack",
+      "inputs": {"gap": "xs", "className": "brk-p-md"},
+      "slots": {"children": ["related-3-title", "related-3-meta"]}
+    },
+    {
+      "id": "related-3-title",
+      "brick": "heading",
+      "inputs": {"level": 4, "content": "Concevoir une API REST efficace"}
+    },
+    {
+      "id": "related-3-meta",
+      "brick": "reading-time",
+      "inputs": {"minutes": 8, "size": "sm", "variant": "muted"}
+    },
+
+    {
+      "id": "footer",
+      "brick": "footer",
+      "inputs": {
+        "logo": {"text": "FormaPro", "href": "/"},
+        "tagline": "La formation professionnelle pour développeurs",
+        "columns": [
+          {
+            "title": "Formations",
+            "links": [
+              {"label": "Laravel", "href": "/formations/laravel"},
+              {"label": "React", "href": "/formations/react"},
+              {"label": "Vue.js", "href": "/formations/vuejs"}
+            ]
+          },
+          {
+            "title": "Ressources",
+            "links": [
+              {"label": "Blog", "href": "/blog"},
+              {"label": "Tutoriels", "href": "/tutoriels"}
+            ]
+          }
+        ],
+        "social": [
+          {"platform": "twitter", "url": "https://twitter.com/formapro"},
+          {"platform": "github", "url": "https://github.com/formapro"}
+        ],
+        "copyright": "© 2025 FormaPro. Tous droits réservés.",
+        "variant": "dark"
+      }
+    }
+  ],
+
+  "customCss": ".brk-p-md { padding: 1rem; } .article-content pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-size: 0.875rem; } .article-content code { font-family: ui-monospace, monospace; } .article-content blockquote { border-left: 4px solid #3b82f6; padding-left: 1.5rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }"
+}
