@@ -182,6 +182,16 @@
                 "default": false,
                 "description": "Effet parallax sur l'image"
             },
+            "scrollIndicator": {
+                "type": "boolean",
+                "default": false,
+                "description": "Affiche une flèche animée en bas pour indiquer de scroller"
+            },
+            "scrollIndicatorTarget": {
+                "type": "string",
+                "default": "",
+                "description": "ID de la section cible (ex: #section-suivante)"
+            },
             "className": {
                 "type": "string",
                 "default": ""
