@@ -42,4 +42,4 @@ Chaque brique a :
 
 ## Liens
 
-- **Implémentation** : [bricks-v2](https://github.com/user/bricks-v2)
+- **GitHub** : [ascito/bricks](https://github.com/ascito/bricks)
