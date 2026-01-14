@@ -1,0 +1,66 @@
+{
+  "id": "landing-simple",
+  "name": "Landing page simple",
+  "bricks": [
+    {
+      "id": "hero",
+      "brick": "hero",
+      "inputs": {
+        "title": "Bienvenue sur notre site",
+        "subtitle": "Une solution simple et efficace",
+        "align": "center",
+        "size": "lg"
+      },
+      "slots": {
+        "actions": ["cta-btn"]
+      }
+    },
+    {
+      "id": "cta-btn",
+      "brick": "button",
+      "inputs": {
+        "label": "Découvrir",
+        "variant": "primary",
+        "size": "lg"
+      }
+    },
+    {
+      "id": "features",
+      "brick": "feature-grid",
+      "inputs": {
+        "columns": 3,
+        "gap": "lg"
+      },
+      "slots": {
+        "children": ["feat-1", "feat-2", "feat-3"]
+      }
+    },
+    {
+      "id": "feat-1",
+      "brick": "feature-card",
+      "inputs": {
+        "icon": "zap",
+        "title": "Rapide",
+        "description": "Performance optimisée"
+      }
+    },
+    {
+      "id": "feat-2",
+      "brick": "feature-card",
+      "inputs": {
+        "icon": "shield",
+        "title": "Sécurisé",
+        "description": "Protection des données"
+      }
+    },
+    {
+      "id": "feat-3",
+      "brick": "feature-card",
+      "inputs": {
+        "icon": "heart",
+        "title": "Simple",
+        "description": "Interface intuitive"
+      }
+    }
+  ]
+}
